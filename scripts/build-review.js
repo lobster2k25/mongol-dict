@@ -28,6 +28,9 @@ for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort()
     if (e.note_mn && !e.note_kind) warn('note without note_kind');
     if (!e.meanings_mn.length) warn('no meanings');
     for (const x of e.examples) if (!x.word.includes(e.kanji)) warn(`example ${x.word} lacks the kanji`);
+    // Mongolian text must be Cyrillic: catch Latin look-alikes (x, o, e…) and stray accented letters.
+    const mn = [...e.meanings_mn, e.note_mn, ...e.examples.map((x) => x.mn)].join(' ');
+    if (/[A-Za-zÀ-ɏ]/.test(mn)) warn(`Latin letter in Mongolian text: ${mn.match(/\S*[A-Za-zÀ-ɏ]\S*/)[0]}`);
   }
   total += entries.length;
 
