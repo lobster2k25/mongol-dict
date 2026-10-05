@@ -21,12 +21,15 @@ license the data however we choose later.
 
 | Path | Contents | In git? |
 |------|----------|---------|
-| `data/kanji.json` | Mongolian meanings, a short note and example words per kanji | ✅ |
+| `data/kanji/<set>.json` | One file per set: `grade-1`…`grade-6`, `secondary-1`…`secondary-6` (≤ 202 entries each) | ✅ |
 | `scripts/fetch-sources.sh` | Downloads KANJIDIC2/KRADFILE into `sources/` | ✅ |
-| `scripts/build-review.js` | Builds `review/kanji.md` (our entries + KANJIDIC2 readings) | ✅ |
+| `scripts/build-review.js` | Validates all data and builds `review/<set>.md` (our entries + KANJIDIC2 readings) | ✅ |
+| `scripts/next-batch.js` | `node scripts/next-batch.js grade-3 100` lists the next kanji to write | ✅ |
 | `sources/`, `review/` | EDRDG files and the generated sheet that quotes them | ❌ local only |
 
-## Entry format (`data/kanji.json`)
+## Entry format (`data/kanji/<set>.json`)
+
+One entry per line, so diffs stay readable and files stay small.
 
 ```json
 {
@@ -59,5 +62,5 @@ license the data however we choose later.
 ## Workflow
 
 1. `sh scripts/fetch-sources.sh` (once), then `node scripts/build-review.js`.
-2. Open `review/kanji.md`, check rows, note fixes.
-3. Fixes go into `data/kanji.json`; set `status` to `reviewed`.
+2. Open `review/<set>.md`, check rows, note fixes.
+3. Fixes go into `data/kanji/<set>.json`; set `status` to `reviewed`.
