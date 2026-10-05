@@ -1,30 +1,30 @@
-# ja-mn-dict — Японы ханз, үгийн нээлттэй монгол толь
+# ja-mn-dict — Японы ханз, үгийн монгол толь
 
-An open Japanese → Mongolian (Cyrillic) dictionary of kanji and words, for learners and for any app
-that wants Mongolian support.
+A Japanese → Mongolian (Cyrillic) dictionary of kanji and words, built for the jap_sub subtitle
+learning extension. **Private for now**; whether to open it (and merge into JMdict) is decided later.
 
 ## Why
 
-Every major Japanese learning tool (Yomitan, Jisho, Language Reactor's lookups) runs on
-[JMdict](https://www.edrdg.org/jmdict/j_jmdict.html) and [KANJIDIC2](https://www.edrdg.org/wiki/index.php/KANJIDIC_Project),
-the volunteer dictionaries maintained by EDRDG since 1991. They carry glosses in English, German,
-French, Russian, Hungarian, Swedish, Spanish, Dutch and Slovenian — **but not Mongolian**. The only
-Japanese–Mongolian dictionaries are commercial and closed.
+Every major Japanese learning tool runs on EDRDG's JMdict and KANJIDIC2, which carry glosses in
+English and several European languages — **but not Mongolian**. The only Japanese–Mongolian
+dictionaries are commercial and closed.
 
-JMdict adds a language by aligning a separate dictionary project with its entries (German comes from
-WaDoku this way). This repo aims to be that project for Mongolian.
+## Independence rule
+
+The Mongolian content in `data/` is written independently: meanings, notes and examples are composed
+directly, not translated sense-by-sense from JMdict/KANJIDIC2. Those EDRDG files (CC BY-SA) are used
+only as a **private reference** — to pick which kanji come next and to show readings beside our
+entries in the local review sheet. Nothing from them is stored in `data/`. This keeps the option to
+license the data however we choose later.
 
 ## What's here
 
-| Path | Contents |
-|------|----------|
-| `data/kanji.json` | Mongolian meanings, a short explanation and example words per kanji |
-| `review/kanji.md` | Generated review sheet: our Mongolian next to KANJIDIC2's readings and English |
-| `scripts/` | `fetch-sources.sh` downloads KANJIDIC2/KRADFILE; `build-review.js` builds the sheet |
-| `sources/` | Downloaded EDRDG files (not committed) |
-
-Readings, stroke counts and English meanings are **not** copied into `data/`; they come from
-KANJIDIC2 at build time. `data/` holds only the Mongolian contribution.
+| Path | Contents | In git? |
+|------|----------|---------|
+| `data/kanji.json` | Mongolian meanings, a short note and example words per kanji | ✅ |
+| `scripts/fetch-sources.sh` | Downloads KANJIDIC2/KRADFILE into `sources/` | ✅ |
+| `scripts/build-review.js` | Builds `review/kanji.md` (our entries + KANJIDIC2 readings) | ✅ |
+| `sources/`, `review/` | EDRDG files and the generated sheet that quotes them | ❌ local only |
 
 ## Entry format (`data/kanji.json`)
 
@@ -39,27 +39,25 @@ KANJIDIC2 at build time. `data/` holds only the Mongolian contribution.
 }
 ```
 
-- `note_kind`: `origin` = the established explanation of the character; `mnemonic` = a memory aid
-  that is **not** a claim about etymology; empty = no note yet.
-- `status`: `machine` (generated, unchecked) → `reviewed` (checked by a Mongolian speaker).
+- `note_kind`
+  - `origin` — the established explanation of the character
+  - `mnemonic` — a memory aid, **not** a claim about etymology
+  - `compare` — a Japanese ↔ Mongolian contrast (e.g. 青 covers blue and green, like «хөх»)
+  - `usage` — a usage tip (e.g. numbers grouped by 万)
+  - empty — no note yet
+- `status`: `machine` (drafted by AI, unchecked) → `reviewed` (checked by a Mongolian speaker).
 
 ## Status
 
 | Set | Entries | Reviewed |
 |-----|---------|----------|
-| Kanji: grade 1 (80) + top-20 grade 2 | 100 | 0 |
+| Grade 1 | 80 / 80 | 0 |
+| Grade 2 | 160 / 160 | 0 |
+| Grades 3–6 | 0 / 786 | 0 |
+| Secondary jōyō | 0 / 1,110 | 0 |
 
-The first 100 entries were drafted with AI (Claude) from KANJIDIC2's English meanings and are all
-`machine` status until a native speaker checks them.
+## Workflow
 
-## Contributing
-
-Open `review/kanji.md`, check each row, and either tick it or note the fix. Corrections go into
-`data/kanji.json` (set `status` to `reviewed` once checked).
-
-## Licence
-
-[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), matching EDRDG's licence so the data
-can be merged back into JMdict/KANJIDIC. Uses KANJIDIC2 and KRADFILE from the
-[Electronic Dictionary Research and Development Group](https://www.edrdg.org/), under their
-[licence](https://www.edrdg.org/edrdg/licence.html).
+1. `sh scripts/fetch-sources.sh` (once), then `node scripts/build-review.js`.
+2. Open `review/kanji.md`, check rows, note fixes.
+3. Fixes go into `data/kanji.json`; set `status` to `reviewed`.
