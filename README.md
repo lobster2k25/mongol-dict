@@ -63,7 +63,8 @@ One entry per line, so diffs stay readable and files stay small.
 | Secondary 1 | 200 / 200 | 0 |
 | Secondary 2 | 200 / 200 | 0 |
 | Secondary 3 | 200 / 200 | 0 |
-| Secondary 4–6 | 0 / 510 | 0 |
+| Secondary 4 | 200 / 200 | 0 |
+| Secondary 5–6 | 0 / 310 | 0 |
 
 ## Workflow
 
