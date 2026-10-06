@@ -25,7 +25,11 @@ license the data however we choose later.
 | `scripts/fetch-sources.sh` | Downloads KANJIDIC2/KRADFILE into `sources/` | ✅ |
 | `scripts/build-review.js` | Validates all data and builds `review/<set>.md` (our entries + KANJIDIC2 readings) | ✅ |
 | `scripts/next-batch.js` | `node scripts/next-batch.js grade-3 100` lists the next kanji to write | ✅ |
-| `sources/`, `review/` | EDRDG files and the generated sheet that quotes them | ❌ local only |
+| `data/words/0001-1000.json` | The 1,000 most frequent subtitle words, one entry per line | ✅ |
+| `scripts/build-freq.js` | Ranks dictionary forms in OpenSubtitles Japanese with kuromoji → `sources/word-freq.json` | ✅ |
+| `scripts/next-words.js` | `node scripts/next-words.js 150` lists the next most frequent words not yet written | ✅ |
+| `scripts/add-words.js` | Appends a drafted batch to a `data/words/` file | ✅ |
+| `sources/`, `review/` | Reference files (EDRDG, subtitle corpus, frequency list) and generated review sheets | ❌ local only |
 
 ## Entry format (`data/kanji/<set>.json`)
 
@@ -66,9 +70,29 @@ One entry per line, so diffs stay readable and files stay small.
 | Secondary 4 | 200 / 200 | 0 |
 | Secondary 5 | 200 / 200 | 0 |
 | Secondary 6 | 110 / 110 | 0 |
+| Words 1–1000 | 1000 / 1000 | 0 |
+
+## Word entry format (`data/words/<range>.json`)
+
+```json
+{
+  "word": "分かる", "reading": "わかる", "alt": ["わかる", "解る"], "pos": "verb",
+  "meanings_mn": ["ойлгох, мэдэх"], "note_kind": "", "note_mn": "",
+  "example": { "ja": "分かった。", "mn": "Ойлголоо." }, "status": "machine"
+}
+```
+
+- `word` is the dictionary form as usually written; `alt` holds other spellings (kana, kanji variants) so a
+  lookup of any of them lands here. `reading` is hiragana.
+- `pos`: noun, pronoun, verb, adj-i, adj-na, adverb, particle, auxiliary, conjunction, interjection,
+  prenoun, prefix, suffix, counter, expression. One entry per word + pos (の particle vs ない adjective etc.).
+- `example` is written for this dictionary (not copied from subtitles); it must contain the word or its stem.
+- Order follows subtitle frequency: `sources/opensubtitles-ja.txt` (OPUS OpenSubtitles v2018, ~3.2M lines),
+  split with kuromoji. It leans toward dubbed Western films (銃, 捜査, ドル rank high). The list is a private
+  reference for ordering only. The first 1,000 words cover ~84% of subtitle tokens (~73% of non-grammar words).
 
 ## Workflow
 
-1. `sh scripts/fetch-sources.sh` (once), then `node scripts/build-review.js`.
+1. `sh scripts/fetch-sources.sh` (once), `npm install`, `node scripts/build-freq.js`, then `node scripts/build-review.js`.
 2. Open `review/<set>.md`, check rows, note fixes.
 3. Fixes go into `data/kanji/<set>.json`; set `status` to `reviewed`.
