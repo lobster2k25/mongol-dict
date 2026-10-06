@@ -62,7 +62,8 @@ One entry per line, so diffs stay readable and files stay small.
 | Grade 6 | 191 / 191 | 0 |
 | Secondary 1 | 200 / 200 | 0 |
 | Secondary 2 | 200 / 200 | 0 |
-| Secondary 3–6 | 0 / 710 | 0 |
+| Secondary 3 | 200 / 200 | 0 |
+| Secondary 4–6 | 0 / 510 | 0 |
 
 ## Workflow
 
