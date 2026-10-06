@@ -71,6 +71,7 @@ One entry per line, so diffs stay readable and files stay small.
 | Secondary 5 | 200 / 200 | 0 |
 | Secondary 6 | 110 / 110 | 0 |
 | Words 1–1000 | 1000 / 1000 | 0 |
+| Words 1001–2000 | 150 / 1000 | 0 |
 
 ## Word entry format (`data/words/<range>.json`)
 

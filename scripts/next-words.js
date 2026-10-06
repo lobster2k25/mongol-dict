@@ -7,7 +7,8 @@ const { root } = require('./lib-sources');
 // Tokenizer debris and fragments that are not words a learner would look up.
 const SKIP = new Set(['ン', 'う', 'こ', 'え', 'く', 'ら', 'お', 'ご', 'し', 'さ', 'ば', 'や', 'ど', 'ぬ', 'つ', 'ぁ', 'ぇ', 'ぃ', 'ま', 'そっ', 'だい', 'くい',
   // Names and loanwords the tokenizer can't tell apart (Jack, Mike/microphone, lock/rock).
-  'ジャック', 'マイク', 'ロック', 'サラ', 'レッド', 'マン', 'ろ', 'り', 'ガン']);
+  'ジャック', 'マイク', 'ロック', 'サラ', 'レッド', 'マン', 'ろ', 'り', 'ガン',
+  'レ', 'ジャー', 'イカ', '山里', 'ジム', 'マーク']);
 
 const [count = 100] = process.argv.slice(2);
 const freq = JSON.parse(fs.readFileSync(path.join(root, 'sources/word-freq.json'), 'utf8'));
