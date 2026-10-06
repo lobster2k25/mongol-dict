@@ -16,6 +16,17 @@
 | [`ja-mn/`](ja-mn/) | Япон → Монгол | Өдөр тутмын хэрэглээний 2,136 ханз (常用漢字), кино, цувралын хадмалд хамгийн их гардаг 3,765 үг | 0 |
 | `ko-mn/`, `zh-mn/`, `en-mn/` … | Солонгос, хятад, англи … → Монгол | Хараахан эхлээгүй. [Эхлүүлэх үү?](NEW-LANGUAGE.md) | |
 
+## Татах
+
+[Releases](../../releases/latest) хуудаснаас:
+
+| Файл | Юунд |
+|------|------|
+| `mongol-dict-ja-mn-yomitan.zip` | [Yomitan](https://yomitan.wiki/) хөтчийн өргөтгөлд: вэб хуудсан дээрх япон үгэн дээр хулганаа аваачихад монгол утга гарна. Yomitan → Settings → Dictionaries → Import. Шинэ хувилбар гарвал Yomitan-ы «Check for updates» товчоор шинэчилнэ |
+| `mongol-dict-ja-mn.json` | Бүх үг, ханз нэг файлд; өөрийн апп, програмдаа ашиглах |
+
+Өөрчлөлтүүд: [CHANGELOG.md](CHANGELOG.md).
+
 ## Бүтэц
 
 ```text
@@ -83,6 +94,8 @@ Open dictionary data from other languages **into Mongolian** (Cyrillic). Each fo
   existing id was removed or reused.
 - `tools/validate.js` checks every language folder and needs no downloads. `<lang>-mn/tools/` holds that
   language's helpers (word frequency, next batch, review sheets).
+- **Downloads** ([latest release](../../releases/latest)): a Yomitan dictionary (`mongol-dict-ja-mn-yomitan.zip`, updatable
+  via Yomitan's "Check for updates") and all entries in one JSON file. A tag `vX.Y.Z` with a matching CHANGELOG section publishes a release.
 - Adding a language: [NEW-LANGUAGE.md](NEW-LANGUAGE.md). Contributing: [CONTRIBUTING.md](CONTRIBUTING.md).
 - Mongolian content is written independently, never copied from other dictionaries or translated from JMdict.
 - Data: **CC BY-SA 4.0** ([LICENSE](LICENSE)). Code: **MIT** ([LICENSE-CODE](LICENSE-CODE)).
