@@ -1,9 +1,10 @@
 {
-  "name": "ja-mn-dict",
+  "name": "mongol-dict",
   "private": true,
-  "description": "Japanese → Mongolian (Cyrillic) dictionary of kanji and words for the jap_sub extension",
-  "license": "UNLICENSED",
+  "description": "Open Mongolian dictionary data, starting with Japanese (kanji and words)",
+  "license": "SEE LICENSE IN README.md",
   "dependencies": {
     "kuromoji": "^0.1.2"
-  }
+  },
+  "repository": "github:lobster2k25/mongol-dict"
 }

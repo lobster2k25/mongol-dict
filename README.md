@@ -1,41 +1,42 @@
-# ja-mn-dict — Японы ханз, үгийн монгол толь
+# mongol-dict — Нээлттэй монгол толь бичиг
 
-A Japanese → Mongolian (Cyrillic) dictionary of kanji and words, built for the jap_sub subtitle
-learning extension. **Private for now**; whether to open it (and merge into JMdict) is decided later.
+Монгол хэлний нээлттэй, үнэгүй толь бичгийн өгөгдөл. Эхний хэл нь **япон**: бүх 2,136 жёёё ханз (常用漢字),
+кино, цувралын хадмалд хамгийн их гардаг 2,906 үг, тус бүр жишээтэй. Цаашид бусад хэл нэмэгдэнэ.
 
-## Why
+> [!WARNING]
+> Одоогоор бүх бичлэг **хиймэл оюуны (AI) ноорог** (`status: "machine"`) бөгөөд монгол хэлтэй хүн хараахан
+> хянаагүй. Алдаа олбол засахад туслаарай: [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Every major Japanese learning tool runs on EDRDG's JMdict and KANJIDIC2, which carry glosses in
-English and several European languages — **but not Mongolian**. The only Japanese–Mongolian
-dictionaries are commercial and closed.
+## Яагаад
 
-## Independence rule
+Япон хэл сурах бараг бүх хэрэгсэл EDRDG-ийн JMdict, KANJIDIC2 дээр ажилладаг. Тэдгээрт англи болон Европын
+хэдэн хэлний тайлбар бий, харин **монгол байхгүй**. Япон–монгол толь бичгүүд бүгд арилжааны, хаалттай.
+Энэ төсөл хэн ч ашиглаж, засаж, нэмж болох монгол өгөгдлийг бүтээх зорилготой.
 
-The Mongolian content in `data/` is written independently: meanings, notes and examples are composed
-directly, not translated sense-by-sense from JMdict/KANJIDIC2. Those EDRDG files (CC BY-SA) are used
-only as a **private reference** — to pick which kanji come next and to show readings beside our
-entries in the local review sheet. Nothing from them is stored in `data/`. This keeps the option to
-license the data however we choose later. (The extension separately shows JMdict's English for words we don't
-have yet; that layer is built in the extension and never enters `data/`.)
+## Юу байгаа вэ
 
-## What's here
+| Хавтас | Агуулга |
+|--------|---------|
+| `data/kanji/<set>.json` | Ханз, Японы сургуулийн ангиар: `grade-1`…`grade-6` (бага анги), `secondary-1`…`secondary-6` (дунд анги) |
+| `data/words/0001-1000.json` … | Үгс, хадмалд гарах давтамжаар эрэмбэлсэн |
+| `data/words/watched-NN.json` | Үзсэн цувралаас олдсон, толь бичигт дутуу байсан үгс |
+| `scripts/` | Өгөгдлийг шалгах, дараагийн үгсийг сонгох скриптүүд |
 
-| Path | Contents | In git? |
-|------|----------|---------|
-| `data/kanji/<set>.json` | One file per set: `grade-1`…`grade-6`, `secondary-1`…`secondary-6` (≤ 202 entries each) | ✅ |
-| `scripts/fetch-sources.sh` | Downloads KANJIDIC2/KRADFILE into `sources/` | ✅ |
-| `scripts/build-review.js` | Validates all data and builds `review/<set>.md` (our entries + KANJIDIC2 readings) | ✅ |
-| `scripts/next-batch.js` | `node scripts/next-batch.js grade-3 100` lists the next kanji to write | ✅ |
-| `data/words/0001-1000.json` | The 1,000 most frequent subtitle words, one entry per line | ✅ |
-| `data/words/watched-NN.json` | Words missing from episodes the owner watched (exported by the extension), same format | ✅ |
-| `scripts/build-freq.js` | Ranks dictionary forms in OpenSubtitles Japanese with kuromoji → `sources/word-freq.json` | ✅ |
-| `scripts/next-words.js` | `node scripts/next-words.js 150` lists the next most frequent words not yet written | ✅ |
-| `scripts/add-words.js` | Appends a drafted batch to a `data/words/` file | ✅ |
-| `sources/`, `review/` | Reference files (EDRDG, subtitle corpus, frequency list) and generated review sheets | ❌ local only |
+Файл бүрт **нэг мөр = нэг бичлэг**, тиймээс засвар бүр GitHub дээр тод харагдана.
 
-## Entry format (`data/kanji/<set>.json`)
+## Төлөв
 
-One entry per line, so diffs stay readable and files stay small.
+| Хэсэг | Бичлэг | Хянасан |
+|-------|--------|---------|
+| Ханз (бүх 常用漢字) | 2,136 / 2,136 | 0 |
+| Үг, давтамжийн 1–3000 | 2,482 | 0 |
+| Үг, үзсэн цувралаас (`watched-01`: Sins of Kujo S1E1) | 424 | 0 |
+
+Эхний 1,000 үг хадмалын үгсийн ~84%-ийг, одоогийн 2,906 үг ~90%-ийг хамардаг.
+
+## Бичлэгийн хэлбэр
+
+Ханз (`data/kanji/<set>.json`):
 
 ```json
 {
@@ -48,36 +49,7 @@ One entry per line, so diffs stay readable and files stay small.
 }
 ```
 
-- `note_kind`
-  - `origin` — the established explanation of the character
-  - `mnemonic` — a memory aid, **not** a claim about etymology
-  - `compare` — a Japanese ↔ Mongolian contrast (e.g. 青 covers blue and green, like «хөх»)
-  - `usage` — a usage tip (e.g. numbers grouped by 万)
-  - empty — no note yet
-- `status`: `machine` (drafted by AI, unchecked) → `reviewed` (checked by a Mongolian speaker).
-
-## Status
-
-| Set | Entries | Reviewed |
-|-----|---------|----------|
-| Grade 1 | 80 / 80 | 0 |
-| Grade 2 | 160 / 160 | 0 |
-| Grade 3 | 200 / 200 | 0 |
-| Grade 4 | 202 / 202 | 0 |
-| Grade 5 | 193 / 193 | 0 |
-| Grade 6 | 191 / 191 | 0 |
-| Secondary 1 | 200 / 200 | 0 |
-| Secondary 2 | 200 / 200 | 0 |
-| Secondary 3 | 200 / 200 | 0 |
-| Secondary 4 | 200 / 200 | 0 |
-| Secondary 5 | 200 / 200 | 0 |
-| Secondary 6 | 110 / 110 | 0 |
-| Words 1–1000 | 1000 / 1000 | 0 |
-| Words 1001–2000 | 1000 / 1000 | 0 |
-| Words 2001–3000 | 482 (covers subtitle ranks up to 3000) | 0 |
-| Watched (`watched-01`: Sins of Kujo S1E1) | 424 | 0 |
-
-## Word entry format (`data/words/<range>.json`)
+Үг (`data/words/*.json`):
 
 ```json
 {
@@ -87,20 +59,49 @@ One entry per line, so diffs stay readable and files stay small.
 }
 ```
 
-- `word` is the dictionary form as usually written; `alt` holds other spellings (kana, kanji variants) so a
-  lookup of any of them lands here. `reading` is hiragana.
-- `pos`: noun, pronoun, verb, adj-i, adj-na, adverb, particle, auxiliary, conjunction, interjection,
-  prenoun, prefix, suffix, counter, expression. One entry per word + pos (の particle vs ない adjective etc.).
-- `example` is written for this dictionary (not copied from subtitles); it must contain the word or its stem.
-- Order follows subtitle frequency: `sources/opensubtitles-ja.txt` (OPUS OpenSubtitles v2018, ~3.2M lines),
-  split with kuromoji. It leans toward dubbed Western films (銃, 捜査, ドル rank high). The list is a private
-  reference for ordering only. The first 1,000 words cover ~84% of subtitle tokens (~73% of non-grammar words); with ranks up to 3,000 and
-  the watched-episode words (2,906 entries, 2026-10-06) it is ~90% of tokens (~85% of non-grammar words).
-  Since 2026-10-06 bulk entries are drafted by Sonnet 5.5 subagents (word list in, entries out; merged with
-  spelling clashes folded into existing entries), checked by `build-review.js`.
+| Талбар | Утга |
+|--------|------|
+| `word`, `alt` | Толь бичгийн хэлбэр, бусад бичлэг (кана, өөр ханз) |
+| `reading` | Хираганаар унших нь |
+| `pos` | Үгсийн аймаг: noun, verb, adj-i, adj-na, adverb, particle, expression гэх мэт |
+| `note_kind` | `origin` (ханзны гарал), `mnemonic` (цээжлэх арга, гарал үүсэл **биш**), `compare` (япон–монгол харьцуулалт), `usage` (хэрэглээний зөвлөгөө), эсвэл хоосон |
+| `status` | `machine` (AI ноорог, хянаагүй) → `reviewed` (монгол хэлтэй хүн хянасан) |
 
-## Workflow
+## Бие даасан байдлын дүрэм
 
-1. `sh scripts/fetch-sources.sh` (once), `npm install`, `node scripts/build-freq.js`, then `node scripts/build-review.js`.
-2. Open `review/<set>.md`, check rows, note fixes.
-3. Fixes go into `data/kanji/<set>.json`; set `status` to `reviewed`.
+Монгол агуулгыг шууд бичсэн: JMdict, KANJIDIC2-ыг утга бүрээр орчуулаагүй, бусад толь бичиг, апп, хадмалаас
+хуулаагүй. Жишээ өгүүлбэрүүд энэ толь бичигт зориулж зохиогдсон. Оролцогчид мөн адил дүрэм баримтална.
+
+## Лиценз
+
+- **Өгөгдөл** (`data/`): [CC BY-SA 4.0](LICENSE). Хэн ч, арилжааны зорилгоор ч ашиглаж болно. Нөхцөл:
+  эх сурвалжийг дурдах («mongol-dict, CC BY-SA 4.0» ба энэ хуудасны холбоос), өөрчилсөн хувилбараа ижил
+  лицензээр түгээх.
+- **Скриптүүд** (`scripts/`): [MIT](scripts/LICENSE).
+
+---
+
+## English
+
+Open Mongolian dictionary data, starting with Japanese: all 2,136 jōyō kanji and the 2,906 most frequent
+subtitle words, each with Mongolian (Cyrillic) meanings and an example. Every entry is currently an
+**unreviewed AI draft** (`status: "machine"`); review and corrections from Mongolian speakers are the most
+valuable contribution. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+The Mongolian content is written independently, not translated from JMdict/KANJIDIC2 or copied from other
+dictionaries. Data is licensed **CC BY-SA 4.0** ([LICENSE](LICENSE)); scripts are **MIT** ([scripts/LICENSE](scripts/LICENSE)).
+
+### For maintainers
+
+| Command | What it does |
+|---------|--------------|
+| `sh scripts/fetch-sources.sh` | Downloads reference files into `sources/` (EDRDG KANJIDIC2/KRADFILE/JMdict, OPUS OpenSubtitles). Local only, never committed |
+| `npm install` | Installs kuromoji (Japanese tokenizer) |
+| `node scripts/build-freq.js` | Ranks dictionary forms in ~3.2M subtitle lines → `sources/word-freq.json` (~1 min) |
+| `node scripts/next-batch.js <set> [n]` | Lists kanji of a set not yet written |
+| `node scripts/next-words.js [n]` | Lists the next most frequent words not yet covered (by `word` or `alt`) |
+| `node scripts/add-words.js <batch> [range]` | Appends a drafted batch to a `data/words/` file |
+| `node scripts/build-review.js` | Validates everything (duplicates, set membership, examples contain the headword, no Latin letters in Mongolian) and builds `review/*.md`. Must print 0 problems before a commit |
+
+The EDRDG files are a reference only: they decide which kanji come next and show readings beside our entries
+in the local review sheets. Nothing from them is stored in `data/`.
