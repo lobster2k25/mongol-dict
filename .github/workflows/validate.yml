@@ -1,0 +1,29 @@
+# Checks every pull request and every push to main: entry format, Mongolian text, and that no
+# word id that already exists was removed or reused (ids are permanent).
+name: validate
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check entries (against the branch being merged into)
+        if: github.event_name == 'pull_request'
+        run: node tools/validate.js --base origin/${{ github.base_ref }}
+      - name: Check entries (against the previous commit)
+        if: github.event_name == 'push'
+        run: |
+          before='${{ github.event.before }}'
+          if git cat-file -e "$before^{commit}" 2>/dev/null; then
+            node tools/validate.js --base "$before"
+          else
+            node tools/validate.js
+          fi

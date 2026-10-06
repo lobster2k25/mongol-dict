@@ -1,8 +1,10 @@
 // Checks every language folder (<code>-mn/, e.g. ja-mn/) against the shared entry format.
 // Needs no downloads: node tools/validate.js   (prints the problems, exits 1 if there are any)
+// node tools/validate.js --base origin/main  also checks that no word id that exists there was removed or reused.
 // Language-specific checks (e.g. kanji set membership for Japanese) live in <code>-mn/tools/.
 const fs = require('fs');
 const path = require('path');
+const { execFileSync } = require('child_process');
 
 const root = path.join(__dirname, '..');
 const POS = ['noun', 'pronoun', 'verb', 'adjective', 'adj-i', 'adj-na', 'adverb', 'numeral', 'particle',
@@ -11,6 +13,10 @@ const POS = ['noun', 'pronoun', 'verb', 'adjective', 'adj-i', 'adj-na', 'adverb'
 const KINDS = ['', 'origin', 'mnemonic', 'compare', 'usage'];
 const STATUS = ['machine', 'reviewed'];
 const latin = /[A-Za-zÀ-ɏ]/;
+
+const baseArg = process.argv.indexOf('--base');
+const base = baseArg > 0 ? process.argv[baseArg + 1] : null;
+const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 1 << 28, stdio: ['ignore', 'pipe', 'ignore'] });
 
 let problems = 0;
 const report = [];
@@ -48,12 +54,16 @@ for (const lang of langs) {
 
   const wdir = path.join(root, lang, 'words');
   const seen = new Set();
+  const ids = new Map(); // id -> word
   for (const file of fs.existsSync(wdir) ? fs.readdirSync(wdir).filter((f) => f.endsWith('.json')).sort() : []) {
     const where = `${lang}/words/${file}`;
     const entries = readEntries(path.join(wdir, file), (msg) => { problems++; report.push(`${where}: ${msg}`); });
     for (const e of entries) {
       const warn = (msg) => { problems++; report.push(`${where} ${e.word}: ${msg}`); };
       if (typeof e.word !== 'string' || !e.word.trim()) { warn('word is missing'); continue; }
+      if (!Number.isInteger(e.id) || e.id < 1) warn('id must be a positive whole number (run node tools/assign-ids.js)');
+      else if (ids.has(e.id)) warn(`id ${e.id} is also used by ${ids.get(e.id)}`);
+      else ids.set(e.id, e.word);
       if (typeof e.reading !== 'string') warn('reading must be text ("" if the language needs none)');
       if (!Array.isArray(e.alt)) warn('alt must be a list ([] if none)');
       if (!POS.includes(e.pos)) warn(`unknown pos "${e.pos}"`);
@@ -66,6 +76,25 @@ for (const lang of langs) {
       if (typeof ex.mn !== 'string' || !ex.mn.trim()) warn('example.mn is missing');
       checkMongolian(e, [...(e.meanings_mn || []), e.note_mn, ex.mn], warn);
       count++;
+    }
+  }
+
+  if (ids.size) {
+    const idsFile = path.join(root, lang, 'ids.json');
+    const next = fs.existsSync(idsFile) ? JSON.parse(fs.readFileSync(idsFile, 'utf8')).next_word_id : 0;
+    if (!(next > Math.max(...ids.keys()))) { problems++; report.push(`${lang}/ids.json: next_word_id must be above the highest id (${Math.max(...ids.keys())})`); }
+    if (base) {
+      // Ids are permanent: every id on the base branch must still exist, and the counter never goes back.
+      let baseFiles = [];
+      try { baseFiles = git('ls-tree', '--name-only', `${base}:${lang}/words`).split('\n').filter((f) => f.endsWith('.json')); } catch { /* new language */ }
+      for (const f of baseFiles) {
+        for (const e of JSON.parse(git('show', `${base}:${lang}/words/${f}`))) {
+          if (Number.isInteger(e.id) && !ids.has(e.id)) { problems++; report.push(`${lang}: id ${e.id} (${e.word}) exists on ${base} but was removed; ids are permanent`); }
+        }
+      }
+      let baseNext = 0;
+      try { baseNext = JSON.parse(git('show', `${base}:${lang}/ids.json`)).next_word_id; } catch { /* no ids yet on base */ }
+      if (next < baseNext) { problems++; report.push(`${lang}/ids.json: next_word_id went back from ${baseNext} to ${next}`); }
     }
   }
 

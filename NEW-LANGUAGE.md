@@ -44,7 +44,15 @@ ko-mn/
 | `status` | AI-аар гаргасан бол `machine`; хүн бүрэн шалгасан бол `reviewed` |
 | Хуулахгүй | Бусад толь бичиг, апп, хадмал, машин орчуулгаас хуулахгүй ([CONTRIBUTING.md](CONTRIBUTING.md)) |
 
-## 4. Шалга
+## 4. Дугаар өг, шалга
+
+Шинэ бичлэгт `id` бүү бич. Дараах тушаал дугаарыг автоматаар өгч, `ko-mn/ids.json` үүсгэнэ:
+
+```sh
+node tools/assign-ids.js
+```
+
+Дараа нь шалга:
 
 ```sh
 node tools/validate.js
@@ -69,5 +77,5 @@ node tools/validate.js
 3. **Write entries** in the shared word format, one per line. `example` is keyed by the language code
    (`{"ko": "...", "mn": "..."}`). Dictionary forms only; one entry per word + pos; no Latin letters in
    Mongolian fields; write everything yourself; AI drafts stay `"status": "machine"`.
-4. **Run `node tools/validate.js`** until it prints `0 problems`. It finds new folders automatically.
+4. **Run `node tools/assign-ids.js`** (gives new entries permanent ids; never write ids by hand), then **`node tools/validate.js`** until it prints `0 problems`. It finds new folders automatically.
 5. **Add a row** to the languages table in the main README and open a pull request. Keep the first one small.

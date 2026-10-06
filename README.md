@@ -38,13 +38,14 @@ GitHub дээр тод харагдана. **Скриптүүд** өгөгдөл
 ## Үгийн бичлэг (бүх хэлд ижил)
 
 ```json
-{ "word": "分かる", "reading": "わかる", "alt": ["わかる", "解る"], "pos": "verb",
+{ "id": 62, "word": "分かる", "reading": "わかる", "alt": ["わかる", "解る"], "pos": "verb",
   "meanings_mn": ["ойлгох, мэдэх"], "note_kind": "", "note_mn": "",
   "example": { "ja": "分かった。", "mn": "Ойлголоо." }, "status": "machine" }
 ```
 
 | Талбар | Утга |
 |--------|------|
+| `id` | Байнгын дугаар: хэзээ ч өөрчлөгдөхгүй, дахин ашиглагдахгүй. Гаднаас `ja-mn/62` гэж заана. Шинэ үгэнд `node tools/assign-ids.js` автоматаар өгнө; гараар бичихгүй |
 | `word` | Эх хэл дээрх толь бичгийн хэлбэр |
 | `reading` | Дуудлага, тухайн хэлний заншлаар (япон: хирагана, хятад: пиньинь); шаардлагагүй бол `""` |
 | `alt` | Өөр бичлэгүүд (жишээ нь кана, өөр ханз); байхгүй бол `[]` |
@@ -75,6 +76,11 @@ Open dictionary data from other languages **into Mongolian** (Cyrillic). Each fo
 3,765 most frequent subtitle words. Every entry is currently an **unreviewed AI draft**.
 
 - Word entries share one format across languages (table above); `example` is keyed by the source language code.
+- **Permanent ids**: every word has an `id` that never changes and is never reused, so other projects can link to
+  `ja-mn/62`. `node tools/assign-ids.js` gives new entries the next number from `<lang>/ids.json`. Kanji are
+  identified by the character itself (`ja-mn/休`).
+- Every pull request is checked automatically (GitHub Actions: `tools/validate.js --base`), including that no
+  existing id was removed or reused.
 - `tools/validate.js` checks every language folder and needs no downloads. `<lang>-mn/tools/` holds that
   language's helpers (word frequency, next batch, review sheets).
 - Adding a language: [NEW-LANGUAGE.md](NEW-LANGUAGE.md). Contributing: [CONTRIBUTING.md](CONTRIBUTING.md).

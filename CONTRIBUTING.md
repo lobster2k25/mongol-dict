@@ -17,8 +17,9 @@
 
 1. Repo-г fork хийнэ.
 2. `ja-mn/words/` эсвэл `ja-mn/kanji/` доторх файлд засна. Нэг мөр = нэг бичлэг; мөрийн дарааллыг өөрчлөхгүй.
-3. Бичлэгийг бүхэлд нь шалгаж зөв гэж үзвэл `"status": "reviewed"` болгоно.
-4. Шалгалт ажиллуулна (`0 problems` гарах ёстой; юу ч татах шаардлагагүй):
+3. Бичлэгийг бүхэлд нь шалгаж зөв гэж үзвэл `"status": "reviewed"` болгоно. `id`-г хэзээ ч өөрчлөхгүй, устгахгүй.
+   Шинэ үг нэмбэл `id` бичихгүй, `node tools/assign-ids.js` ажиллуулна.
+4. Шалгалт ажиллуулна (`0 problems` гарах ёстой; юу ч татах шаардлагагүй). Pull request бүрийг GitHub мөн адил автоматаар шалгана:
    ```sh
    node tools/validate.js
    ```
@@ -50,7 +51,8 @@
 
 The most useful help is **reviewing existing entries**: all of them are AI drafts. Not using Git? Open an issue
 with the word, what's wrong and what it should be. Using Git? Edit the line in `ja-mn/words/` or `ja-mn/kanji/`, set
-`"status": "reviewed"` only if you checked the whole entry, run `node tools/validate.js` (0 problems),
+`"status": "reviewed"` only if you checked the whole entry, never change or delete an `id` (new words: run
+`node tools/assign-ids.js`), run `node tools/validate.js` (0 problems),
 and open a pull request. Adding a language: [NEW-LANGUAGE.md](NEW-LANGUAGE.md).
 
 Rules: write everything yourself. Never copy from other dictionaries (Bolor Toli, any printed or online
