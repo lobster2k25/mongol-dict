@@ -375,7 +375,7 @@
 {"word":"取り返し","reading":"とりかえし","alt":[],"pos":"noun","meanings_mn":["(取り返しがつかない) засаж залруулах аргагүй"],"note_kind":"","note_mn":"","example":{"ja":"取り返しのつかないことをした。","mn":"Засаж залруулах аргагүй юм хийчихлээ."},"status":"machine"},
 {"word":"思想","reading":"しそう","alt":[],"pos":"noun","meanings_mn":["үзэл бодол, сэтгэлгээ"],"note_kind":"","note_mn":"","example":{"ja":"思想の自由がある。","mn":"Үзэл бодлын эрх чөлөө бий."},"status":"machine"},
 {"word":"信条","reading":"しんじょう","alt":[],"pos":"noun","meanings_mn":["итгэл үнэмшил, зарчим"],"note_kind":"","note_mn":"","example":{"ja":"嘘をつかないのが私の信条だ。","mn":"Худал хэлэхгүй байх нь миний зарчим."},"status":"machine"},
-{"word":"分ける","reading":"わける","alt":[],"pos":"verb","meanings_mn":["хуваах, ялгах","хуваалцах"],"note_kind":"","note_mn":"","example":{"ja":"ケーキを四つに分けた。","mn":"Бялууг дөрөв хуваасан."},"status":"machine"},
+{"word":"分ける","reading":"わける","alt":["わける"],"pos":"verb","meanings_mn":["хуваах, ялгах","хуваалцах"],"note_kind":"","note_mn":"","example":{"ja":"ケーキを四つに分けた。","mn":"Бялууг дөрөв хуваасан."},"status":"machine"},
 {"word":"がたい","reading":"がたい","alt":["難い"],"pos":"suffix","meanings_mn":["...ж хэцүү, ...ж боломжгүй (信じがたい — итгэмээргүй)"],"note_kind":"","note_mn":"","example":{"ja":"それは信じがたい話だ。","mn":"Энэ итгэмээргүй түүх."},"status":"machine"},
 {"word":"引き受ける","reading":"ひきうける","alt":[],"pos":"verb","meanings_mn":["хүлээн авах, хариуцах (ажил, хүсэлт)"],"note_kind":"","note_mn":"","example":{"ja":"その仕事、引き受けます。","mn":"Тэр ажлыг хүлээж авъя."},"status":"machine"},
 {"word":"いくら","reading":"いくら","alt":["幾ら"],"pos":"adverb","meanings_mn":["хэд, ямар үнэтэй","(いくら〜ても) хичнээн ...ч"],"note_kind":"","note_mn":"","example":{"ja":"これはいくらですか？","mn":"Энэ хэд вэ?"},"status":"machine"},
