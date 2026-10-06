@@ -8,8 +8,10 @@
 | Үг, хадмалын давтамжийн 1–3000 | 2,482 | 0 |
 | Үг, хадмалын давтамжийн 3001–4000 | 859 | 0 |
 | Үг, үзсэн цувралаас (`watched-01`: Sins of Kujo S1E1) | 424 | 0 |
+| Оноосон нэр: улс, газар, байгууллага, овог | 907 | 0 |
 
-Эхний 1,000 үг кино, цувралын хадмалын үгсийн ~84%-ийг, одоогийн 3,765 үг ~92%-ийг хамардаг.
+Одоогийн үг, нэрс кино, цувралын хадмал дахь бүх үгийн **~89%**-ийг хамардаг (тоо, цэг таслалаас
+бусад бүх үгтэй, хүний нэрийг оролцуулан харьцуулж тоолсон).
 
 | Файл | Агуулга |
 |------|---------|
@@ -17,6 +19,11 @@
 | `kanji/secondary-1.json` … `secondary-6.json` | Үлдсэн өдөр тутмын хэрэглээний ханз (дунд сургуулиас дээш) |
 | `words/0001-1000.json` … | Үгс, хадмалд гарах давтамжаар эрэмбэлсэн |
 | `words/watched-NN.json` | Үзсэн цувралаас олдсон, толь бичигт дутуу байсан үгс |
+| `names/countries.json` | Дэлхийн бүх улс, тив, бүс нутаг |
+| `names/japan.json` | Японы 47 муж, хотууд, Токиогийн хороо, дүүрэг, бүс нутаг, үзэсгэлэнт газар |
+| `names/world.json` | Гадаадын хот, муж, арал, далай |
+| `names/orgs.json` | Байгууллага, шашин, бүлэг (国連, 警視庁, キリスト教) |
+| `names/surnames.json` | Японы хамгийн түгээмэл 150 овог |
 
 ## Ханзны бичлэг
 
@@ -35,20 +42,83 @@
 хэлэнд `reading` нь хирагана, `pos` нь `adj-i` (い-тэмдэг нэр), `adj-na` (な-тэмдэг нэр), `prenoun`, `counter`
 зэрэг нэмэлт утгатай.
 
+## Оноосон нэрийн бичлэг
+
+```json
+{"id":4034,"word":"大阪","reading":"おおさか","alt":["大阪府"],"kind":"place","mn":"Осака","desc_mn":"Осака муж ба түүний том хот","status":"machine"}
+```
+
+| Талбар | Утга |
+|--------|------|
+| `kind` | `country` (улс), `region` (тив, бүс нутаг), `place` (хот, муж, дүүрэг, арал, гол), `landmark` (уул, барилга, үзэсгэлэнт газар), `org` (байгууллага), `group` (шашин, ард түмэн, хөдөлгөөн), `surname` (овог), `other` |
+| `mn` | Нэрийн монгол хэлбэр |
+| `desc_mn` | Товч тайлбар (2–8 үг): «Японы нийслэл», «Японы овог» |
+| `alt` | Өөр бичлэг, товчлол (英国 → イギリス). **Нэг тэмдэгттэй товчлол оруулахгүй** (米, 中, 日): тэд энгийн үг (будаа, дотор, өдөр) болохоор буруу утга харуулна |
+
+Нэг бичлэг нэг л нэрийн бичлэгт байна. Ганц үл хамаарах зүйл: овог газрын нэртэй ижил байж болно (山口 муж ба
+Ямагүчи овог). **Хүний нэр** (өөрийн нэр), киноны баатрын нэрийг оруулахгүй: нэг ханз олон янзаар уншигддаг
+тул буруу таах эрсдэлтэй.
+
+### Нэрийг монголоор бичих дүрэм
+
+1. **Улс, алдартай гадаад газар**: монголд тогтсон нэрээр: Америк, Хятад, Орос, Герман, Нью-Йорк, Парис, Бээжин.
+2. **Тогтсон монгол хэлбэртэй япон нэр**: тэр хэлбэрээр: Токио, Киото, Осака, Хоккайдо, Окинава, Хирошима.
+3. **Бусад япон нэр**: дуудлагаас доорх хүснэгтээр. Урт эгшгийг давхарлахгүй (さとう → Сато, おおの → Оно);
+   っ дараагийн гийгүүлэгчийг давхарлана (さっぽろ → Саппоро); эгшгийн дараах い нь **й** болно (さかい → Сакай,
+   さいとう → Сайто, ふくい → Фүкүй).
+
+| | a | i | u | e | o |
+|--|--|--|--|--|--|
+| – | а | и | ү | э | о |
+| k | ка | ки | кү | кэ | ко |
+| s | са | ши | сү | сэ | со |
+| t | та | чи | цү | тэ | то |
+| n | на | ни | нү | нэ | но |
+| h | ха | хи | фү | хэ | хо |
+| m | ма | ми | мү | мэ | мо |
+| y | я | | ю | | ё |
+| r | ра | ри | рү | рэ | ро |
+| w | ва | | | | о |
+| g | га | ги | гү | гэ | го |
+| z/j | за | жи | зү | зэ | зо |
+| d | да | жи | зү | дэ | до |
+| b | ба | би | бү | бэ | бо |
+| p | па | пи | пү | пэ | по |
+
+Нийлмэл: きゃ кя, きゅ кю, きょ кё, しゃ ша, しゅ шү, しょ шо, ちゃ ча, ちゅ чү, ちょ чо, じゃ жа, じゅ жү, じょ жо,
+にゃ ня, ひゃ хя, みゃ мя, りゃ ря, りょ рё, ぎょ гё. ん → н.
+
+## Япон хэлний скриптүүд
+
+Эдгээр нь засварлагчдад (дараагийн үгсийг сонгох, ноорог нэмэх). Засвар оруулахад хэрэггүй; тэр үед зөвхөн
+`node tools/validate.js` хангалттай ([../README.md](../README.md#скриптүүд)). Repo-гийн үндсэн хавтсаас ажиллуулна.
+
+| Тушаал | Юу хийдэг вэ |
+|--------|--------------|
+| `sh ja-mn/tools/fetch-sources.sh` | Лавлах файлуудыг `ja-mn/sources/`-д татна: EDRDG-ийн KANJIDIC2, KRADFILE, JMdict, OPUS OpenSubtitles-ийн япон хадмал (~100 МБ). Зөвхөн өөрийн компьютерт, repo-д орохгүй |
+| `npm install` | Kuromoji (япон өгүүлбэрийг үгэнд хуваагч) суулгана. Нэг удаа |
+| `node ja-mn/tools/build-freq.js` | ~3.2 сая мөр хадмалыг үгэнд хувааж, үг бүр хэдэн удаа гарсныг тоолно (~1 мин). Үр дүн: `sources/word-freq.json` (үгс), `sources/name-freq.json` (оноосон нэр), `sources/token-totals.json` (нийт тоо) |
+| `node ja-mn/tools/next-words.js [n]` | Толь бичигт хараахан ороогүй, хамгийн их гардаг дараагийн `n` үгийг жагсаана |
+| `node ja-mn/tools/next-batch.js <set> [n]` | Тухайн ангийн (жишээ нь `grade-3`) бичигдээгүй ханзыг жагсаана |
+| `node ja-mn/tools/add-words.js <файл> [нэр]` | Бичсэн ноорог багцыг `words/<нэр>.json`-д нэмж, шинэ бичлэгт дугаар өгнө |
+| `node ja-mn/tools/build-review.js` | Япон хэлний нэмэлт шалгалт (ханз зөв ангид байгаа эсэх, жишээнд үг орсон эсэх, унших нь хирагана эсэх), `ja-mn/review/`-д хянах хүснэгт бүтээнэ. Татсан файл шаардлагатай |
+
+Үгсийн дараалал OPUS OpenSubtitles v2018-ийн япон хадмалаас; дубляжтай барууны кино их тул 銃, 捜査, ドル зэрэг
+үг өндөр байранд гардаг. EDRDG-ийн файлууд зөвхөн лавлах: аль ханзыг дараа бичих, хянах хүснэгтэд унших хэлбэрийг
+харуулах. Тэднээс юу ч манай бичлэгт ордоггүй.
+
 ---
 
-## English: Japanese tools
+## English
 
-| Command | What it does |
-|---------|--------------|
-| `sh ja-mn/tools/fetch-sources.sh` | Downloads reference files into `ja-mn/sources/` (EDRDG KANJIDIC2/KRADFILE/JMdict, OPUS OpenSubtitles). Local only, never committed |
-| `npm install` (repo root) | Installs kuromoji (Japanese tokenizer) |
-| `node ja-mn/tools/build-freq.js` | Ranks dictionary forms in ~3.2M subtitle lines → `ja-mn/sources/word-freq.json` (~1 min) |
-| `node ja-mn/tools/next-batch.js <set> [n]` | Lists kanji of a set not yet written |
-| `node ja-mn/tools/next-words.js [n]` | Lists the next most frequent words not yet covered (by `word` or `alt`) |
-| `node ja-mn/tools/add-words.js <batch> [range]` | Appends a drafted batch to a `ja-mn/words/` file |
-| `node ja-mn/tools/build-review.js` | Japanese checks (kanji set membership, example contains the word or its stem, hiragana readings) and review sheets in `ja-mn/review/`. Needs the downloads |
-
-Word order comes from OPUS OpenSubtitles v2018 Japanese, split with kuromoji; it leans toward dubbed Western
-films (銃, 捜査, ドル rank high). The EDRDG files are a reference only: they decide which kanji come next and
-show readings beside our entries in the local review sheets. Nothing from them is stored in our entries.
+- **Contents**: 2,136 jōyō kanji, 3,765 words, 907 proper nouns (`names/`: countries, places, organisations,
+  surnames); together ~89% of all subtitle tokens (measured against every token except punctuation and numbers).
+- **Names** use their own format (`kind`, `mn` = the name in Mongolian, `desc_mn` = short description) and share the
+  word id sequence. No one-character abbreviations in `alt` (米, 中, 日 are ordinary words). Given names and
+  character names are not included. Transcription: established Mongolian names first (Токио, Нью-Йорк), otherwise
+  the table above; long vowels not doubled, っ doubles the next consonant, い after a vowel becomes й.
+- **Tools** (run from the repo root): `fetch-sources.sh` downloads reference files (never committed);
+  `build-freq.js` counts words, proper nouns and total tokens in ~3.2M subtitle lines; `next-words.js`,
+  `next-batch.js` list what to write next; `add-words.js` appends a batch and assigns ids; `build-review.js` runs
+  Japanese-specific checks and builds review sheets. The EDRDG files are a reference only; nothing from them is
+  stored in our entries.

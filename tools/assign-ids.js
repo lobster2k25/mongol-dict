@@ -1,4 +1,5 @@
-// Gives every word entry without an "id" the next free number, then saves <lang>/ids.json.
+// Gives every word and name entry without an "id" the next free number (words and names share one
+// sequence), then saves <lang>/ids.json.
 // Ids are permanent: never changed, never reused (ids.json only counts up, even after a deletion).
 // Usage: node tools/assign-ids.js   (all <code>-mn/ folders)
 const fs = require('fs');
@@ -14,12 +15,12 @@ function writeEntries(file, entries) {
 }
 
 function assign(lang) {
-  const wdir = path.join(root, lang, 'words');
-  if (!fs.existsSync(wdir)) return 0;
+  const dirs = ['words', 'names'].map((d) => path.join(root, lang, d)).filter((d) => fs.existsSync(d));
+  if (!dirs.length) return 0;
   const idsFile = path.join(root, lang, 'ids.json');
   const ids = fs.existsSync(idsFile) ? JSON.parse(fs.readFileSync(idsFile, 'utf8')) : { next_word_id: 1 };
-  const files = fs.readdirSync(wdir).filter((f) => f.endsWith('.json')).sort()
-    .map((f) => ({ file: path.join(wdir, f), entries: JSON.parse(fs.readFileSync(path.join(wdir, f), 'utf8')) }));
+  const files = dirs.flatMap((dir) => fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort()
+    .map((f) => ({ file: path.join(dir, f), entries: JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')) })));
   // First find the highest id in use anywhere, so new ids can't collide with a later file's.
   for (const { entries } of files) {
     for (const e of entries) if (Number.isInteger(e.id)) ids.next_word_id = Math.max(ids.next_word_id, e.id + 1);

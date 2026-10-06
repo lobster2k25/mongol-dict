@@ -66,6 +66,11 @@ const POS_TAGS = {
   interjection: ['аялга', 'аялга үг'], prenoun: ['тодот', 'тодотгол (連体詞)'], prefix: ['угтвар', 'угтвар'],
   suffix: ['дагавар', 'дагавар'], counter: ['тоолуур', 'тоолох нөхцөл (助数詞)'], expression: ['хэллэг', 'хэллэг'],
 };
+const NAME_TAGS = {
+  country: ['улс', 'улсын нэр'], region: ['бүс', 'бүс нутаг, тив'], place: ['газар', 'газрын нэр'],
+  landmark: ['газар', 'газрын нэр'], org: ['байгууллага', 'байгууллагын нэр'], group: ['бүлэг', 'бүлэг, шашин, ард түмэн'],
+  surname: ['овог', 'Японы овог'], other: ['оноосон', 'оноосон нэр'],
+};
 const STATUS_TAGS = { machine: ['ноорог', 'Хиймэл оюуны ноорог, хүн хянаагүй'], reviewed: ['хянасан', 'Монгол хэлтэй хүн хянасан'] };
 
 // Yomitan deinflection rules (v1, v5, vs, vk, adj-i), from kuromoji's conjugation type of the dictionary form.
@@ -86,8 +91,13 @@ function verbRules(tokenizer, e) {
 
 const kana = /^[぀-ヿ]+$/;
 
-function yomitan(lang, words, kanji, tokenizer) {
+function yomitan(lang, words, names, kanji, tokenizer) {
   const terms = [];
+  for (const e of names) {
+    const gloss = e.desc_mn ? [e.mn, e.desc_mn] : [e.mn];
+    const forms = [[e.word, kana.test(e.word) ? '' : e.reading], ...e.alt.map((a) => [a, kana.test(a) ? '' : e.reading])];
+    for (const [expr, reading] of forms) terms.push([expr, reading, NAME_TAGS[e.kind][0], '', 0, gloss, e.id, STATUS_TAGS[e.status][0]]);
+  }
   for (const e of words) {
     const gloss = [...e.meanings_mn];
     if (e.note_mn) gloss.push(`※ ${e.note_mn}`);
@@ -103,6 +113,7 @@ function yomitan(lang, words, kanji, tokenizer) {
     [...k.meanings_mn, ...(k.note_mn ? [`※ ${k.note_mn}`] : []), ...k.examples.map((x) => `${x.word}（${x.reading}）— ${x.mn}`)], {}]);
   const tagBank = [
     ...Object.values(POS_TAGS).map(([name, notes]) => [name, 'partOfSpeech', 0, notes, 0]),
+    ...[...new Map(Object.values(NAME_TAGS).map((t) => [t[0], t])).values()].map(([name, notes]) => [name, 'name', 0, notes, 0]),
     ...Object.values(STATUS_TAGS).map(([name, notes]) => [name, 'status', 1, notes, 0]),
   ];
   const latest = `${repo}/releases/latest/download`;
@@ -135,16 +146,17 @@ async function main() {
   for (const lang of langs) {
     const words = readDir(path.join(root, lang, 'words')).sort((a, b) => a.id - b.id);
     const kanji = readDir(path.join(root, lang, 'kanji'));
-    const all = { name: 'mongol-dict', language: lang, version, license: 'CC BY-SA 4.0', url: repo, kanji, words };
+    const names = readDir(path.join(root, lang, 'names')).sort((a, b) => a.id - b.id);
+    const all = { name: 'mongol-dict', language: lang, version, license: 'CC BY-SA 4.0', url: repo, kanji, words, names };
     fs.writeFileSync(path.join(dist, `mongol-dict-${lang}.json`), JSON.stringify(all));
     let note = '';
     if (lang === 'ja-mn') {
       const kuromoji = require('kuromoji');
       const dicPath = path.join(path.dirname(require.resolve('kuromoji/package.json')), 'dict');
       const tokenizer = await new Promise((ok, fail) => kuromoji.builder({ dicPath }).build((err, t) => (err ? fail(err) : ok(t))));
-      note = `, Yomitan: ${yomitan(lang, words, kanji, tokenizer)} term rows`;
+      note = `, Yomitan: ${yomitan(lang, words, names, kanji, tokenizer)} term rows`;
     }
-    console.log(`${lang} ${version}: ${words.length} words, ${kanji.length} kanji${note}`);
+    console.log(`${lang} ${version}: ${words.length} words, ${names.length} names, ${kanji.length} kanji${note}`);
   }
 }
 main();

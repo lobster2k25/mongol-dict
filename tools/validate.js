@@ -12,6 +12,7 @@ const POS = ['noun', 'pronoun', 'verb', 'adjective', 'adj-i', 'adj-na', 'adverb'
   'counter', 'expression'];
 const KINDS = ['', 'origin', 'mnemonic', 'compare', 'usage'];
 const STATUS = ['machine', 'reviewed'];
+const NAME_KINDS = ['country', 'region', 'place', 'landmark', 'org', 'group', 'surname', 'other'];
 const latin = /[A-Za-zÀ-ɏ]/;
 
 const baseArg = process.argv.indexOf('--base');
@@ -79,16 +80,49 @@ for (const lang of langs) {
     }
   }
 
+  // Names (countries, places, organisations, surnames): their own format, ids shared with words.
+  const ndir = path.join(root, lang, 'names');
+  const nforms = new Map(); // written form -> word of the entry that has it
+  for (const file of fs.existsSync(ndir) ? fs.readdirSync(ndir).filter((f) => f.endsWith('.json')).sort() : []) {
+    const where = `${lang}/names/${file}`;
+    const entries = readEntries(path.join(ndir, file), (msg) => { problems++; report.push(`${where}: ${msg}`); });
+    for (const e of entries) {
+      const warn = (msg) => { problems++; report.push(`${where} ${e.word}: ${msg}`); };
+      if (typeof e.word !== 'string' || !e.word.trim()) { warn('word is missing'); continue; }
+      if (!Number.isInteger(e.id) || e.id < 1) warn('id must be a positive whole number (run node tools/assign-ids.js)');
+      else if (ids.has(e.id)) warn(`id ${e.id} is also used by ${ids.get(e.id)}`);
+      else ids.set(e.id, e.word);
+      if (typeof e.reading !== 'string') warn('reading must be text ("" if the language needs none)');
+      if (!Array.isArray(e.alt)) warn('alt must be a list ([] if none)');
+      // A spelling belongs to one name entry, except that a surname may share it with a place (山口).
+      for (const w of [e.word, ...(e.alt || [])]) {
+        const key = e.kind === 'surname' ? `surname:${w}` : w;
+        if (nforms.has(key)) warn(`"${w}" is also in the name entry ${nforms.get(key)}`);
+        else nforms.set(key, e.word);
+      }
+      if (!NAME_KINDS.includes(e.kind)) warn(`kind must be one of: ${NAME_KINDS.join(', ')}`);
+      if (typeof e.mn !== 'string' || !e.mn.trim()) warn('mn (the name in Mongolian) is missing');
+      if (typeof e.desc_mn !== 'string') warn('desc_mn must be text ("" if none)');
+      if (!STATUS.includes(e.status)) warn(`status must be ${STATUS.join(' or ')}`);
+      checkMongolian(e, [e.mn, e.desc_mn], warn);
+      count++;
+    }
+  }
+
   if (ids.size) {
     const idsFile = path.join(root, lang, 'ids.json');
     const next = fs.existsSync(idsFile) ? JSON.parse(fs.readFileSync(idsFile, 'utf8')).next_word_id : 0;
     if (!(next > Math.max(...ids.keys()))) { problems++; report.push(`${lang}/ids.json: next_word_id must be above the highest id (${Math.max(...ids.keys())})`); }
     if (base) {
       // Ids are permanent: every id on the base branch must still exist, and the counter never goes back.
-      let baseFiles = [];
-      try { baseFiles = git('ls-tree', '--name-only', `${base}:${lang}/words`).split('\n').filter((f) => f.endsWith('.json')); } catch { /* new language */ }
+      const baseFiles = [];
+      for (const dir of ['words', 'names']) {
+        try {
+          baseFiles.push(...git('ls-tree', '--name-only', `${base}:${lang}/${dir}`).split('\n').filter((f) => f.endsWith('.json')).map((f) => `${dir}/${f}`));
+        } catch { /* folder not on base yet */ }
+      }
       for (const f of baseFiles) {
-        for (const e of JSON.parse(git('show', `${base}:${lang}/words/${f}`))) {
+        for (const e of JSON.parse(git('show', `${base}:${lang}/${f}`))) {
           if (Number.isInteger(e.id) && !ids.has(e.id)) { problems++; report.push(`${lang}: id ${e.id} (${e.word}) exists on ${base} but was removed; ids are permanent`); }
         }
       }

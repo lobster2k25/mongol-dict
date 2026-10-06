@@ -2,6 +2,9 @@
 // words to write next. Input: sources/opensubtitles-ja.txt (OPUS OpenSubtitles v2018 Japanese, ~3.2M lines;
 // reference only, like KANJIDIC). Each line is split with kuromoji and counts go to the dictionary form,
 // so 言って, 言った, 言わない all count as 言う.
+// Also writes sources/name-freq.json (proper nouns: countries, places, surnames, organisations; kept apart
+// because they need a different entry type) and sources/token-totals.json (all Japanese tokens, so coverage
+// is measured against everything, names included).
 // Usage: node ja-mn/tools/build-freq.js [maxLines]
 const fs = require('fs');
 const path = require('path');
@@ -16,12 +19,24 @@ const maxLines = +(process.argv[2] || Infinity);
 kuromoji.builder({ dicPath: path.join(path.dirname(require.resolve('kuromoji/package.json')), 'dict') }).build(async (err, tk) => {
   if (err) throw err;
   const freq = new Map();
+  const names = new Map();
+  const totals = { all: 0, names: 0, unknown: 0 };
   const rl = readline.createInterface({ input: fs.createReadStream(path.join(root, 'sources/opensubtitles-ja.txt')) });
   let n = 0;
   for await (const line of rl) {
     if (++n > maxLines) break;
     for (const t of tk.tokenize(line)) {
-      if (t.pos === '記号' || t.pos_detail_1 === '固有名詞' || t.pos_detail_1 === '数' || t.word_type !== 'KNOWN') continue;
+      if (t.pos === '記号' || t.pos_detail_1 === '数' || !japanese.test(t.surface_form)) continue;
+      totals.all++;
+      if (t.word_type !== 'KNOWN') { totals.unknown++; continue; }
+      if (t.pos_detail_1 === '固有名詞') {
+        totals.names++;
+        const key = `${t.basic_form}\t${t.pos_detail_2}\t${t.pos_detail_3}`;
+        let e = names.get(key);
+        if (!e) names.set(key, (e = { word: t.basic_form, reading: hira(t.reading || ''), sub: t.pos_detail_2, kind: t.pos_detail_3, count: 0 }));
+        e.count++;
+        continue;
+      }
       const base = t.basic_form;
       if (!japanese.test(base)) continue;
       const key = `${base}\t${t.pos}`;
@@ -38,5 +53,9 @@ kuromoji.builder({ dicPath: path.join(path.dirname(require.resolve('kuromoji/pac
   });
   const rows = out.map(({ rank, word, reading, pos, sub, count }) => JSON.stringify({ rank, word, reading, pos, sub, count }));
   fs.writeFileSync(path.join(root, 'sources/word-freq.json'), `[\n${rows.join(',\n')}\n]\n`);
-  console.log(`${Math.min(n, maxLines)} lines, ${out.length} dictionary forms`);
+  const nameRows = [...names.values()].filter((e) => e.count >= 5).sort((a, b) => b.count - a.count)
+    .map((e, i) => JSON.stringify({ rank: i + 1, ...e }));
+  fs.writeFileSync(path.join(root, 'sources/name-freq.json'), `[\n${nameRows.join(',\n')}\n]\n`);
+  fs.writeFileSync(path.join(root, 'sources/token-totals.json'), `${JSON.stringify(totals, null, 2)}\n`);
+  console.log(`${Math.min(n, maxLines)} lines, ${out.length} dictionary forms, ${nameRows.length} proper nouns, tokens ${JSON.stringify(totals)}`);
 });
