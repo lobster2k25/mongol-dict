@@ -1,0 +1,9 @@
+{
+  "name": "ja-mn-dict",
+  "private": true,
+  "description": "Japanese → Mongolian (Cyrillic) dictionary of kanji and words for the jap_sub extension",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "kuromoji": "^0.1.2"
+  }
+}
