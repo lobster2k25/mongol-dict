@@ -2,7 +2,7 @@
 {"kanji":"赴","meanings_mn":["очих, мордох"],"note_kind":"","note_mn":"","examples":[{"word":"赴任","reading":"ふにん","mn":"томилолтоор очих"},{"word":"赴く","reading":"おもむく","mn":"очих"}],"status":"machine"},
 {"kanji":"桑","meanings_mn":["ялам мод"],"note_kind":"","note_mn":"","examples":[{"word":"桑","reading":"くわ","mn":"ялам"},{"word":"桑田","reading":"くわた","mn":"Кувата (овог)"}],"status":"machine"},
 {"kanji":"髄","meanings_mn":["чөмөг","мөн чанар"],"note_kind":"","note_mn":"","examples":[{"word":"骨髄","reading":"こつずい","mn":"ясны чөмөг"},{"word":"真髄","reading":"しんずい","mn":"мөн чанар"}],"status":"machine"},
-{"kanji":"虎","meanings_mn":["бар"],"note_kind":"compare","note_mn":"Арван хоёр жилийн 寅 (бар) жил — Монгол зурхайтай ижил.","examples":[{"word":"虎","reading":"とら","mn":"бар"},{"word":"虎の巻","reading":"とらのまき","mn":"хуурмаг тусламж, гарын авлага"}],"status":"machine"},
+{"kanji":"虎","meanings_mn":["бар"],"note_kind":"compare","note_mn":"Арван хоёр жилийн 寅 (бар) жил — Монгол зурхайтай ижил.","examples":[{"word":"虎","reading":"とら","mn":"бар"},{"word":"虎の巻","reading":"とらのまき","mn":"нууц гарын авлага, бэлэн хариулттай ном"}],"status":"machine"},
 {"kanji":"盆","meanings_mn":["тавиур","Бон баяр"],"note_kind":"","note_mn":"","examples":[{"word":"お盆","reading":"おぼん","mn":"Бон баяр; тавиур"},{"word":"盆栽","reading":"ぼんさい","mn":"бонсай"}],"status":"machine"},
 {"kanji":"穂","meanings_mn":["түрүү"],"note_kind":"","note_mn":"","examples":[{"word":"稲穂","reading":"いなほ","mn":"будааны түрүү"},{"word":"穂先","reading":"ほさき","mn":"түрүүний үзүүр"}],"status":"machine"},
 {"kanji":"壮","meanings_mn":["эр зоригт","сүрлэг"],"note_kind":"","note_mn":"","examples":[{"word":"壮大","reading":"そうだい","mn":"сүр жавхлантай"},{"word":"壮年","reading":"そうねん","mn":"идэр нас"}],"status":"machine"},
