@@ -73,7 +73,8 @@ One entry per line, so diffs stay readable and files stay small.
 | Secondary 5 | 200 / 200 | 0 |
 | Secondary 6 | 110 / 110 | 0 |
 | Words 1–1000 | 1000 / 1000 | 0 |
-| Words 1001–2000 | 200 / 1000 | 0 |
+| Words 1001–2000 | 1000 / 1000 | 0 |
+| Words 2001–3000 | 482 (covers subtitle ranks up to 3000) | 0 |
 | Watched (`watched-01`: Sins of Kujo S1E1) | 424 | 0 |
 
 ## Word entry format (`data/words/<range>.json`)
@@ -93,7 +94,10 @@ One entry per line, so diffs stay readable and files stay small.
 - `example` is written for this dictionary (not copied from subtitles); it must contain the word or its stem.
 - Order follows subtitle frequency: `sources/opensubtitles-ja.txt` (OPUS OpenSubtitles v2018, ~3.2M lines),
   split with kuromoji. It leans toward dubbed Western films (銃, 捜査, ドル rank high). The list is a private
-  reference for ordering only. The first 1,000 words cover ~84% of subtitle tokens (~73% of non-grammar words).
+  reference for ordering only. The first 1,000 words cover ~84% of subtitle tokens (~73% of non-grammar words); with ranks up to 3,000 and
+  the watched-episode words (2,906 entries, 2026-10-06) it is ~90% of tokens (~85% of non-grammar words).
+  Since 2026-10-06 bulk entries are drafted by Sonnet 5.5 subagents (word list in, entries out; merged with
+  spelling clashes folded into existing entries), checked by `build-review.js`.
 
 ## Workflow
 
