@@ -15,7 +15,8 @@ The Mongolian content in `data/` is written independently: meanings, notes and e
 directly, not translated sense-by-sense from JMdict/KANJIDIC2. Those EDRDG files (CC BY-SA) are used
 only as a **private reference** — to pick which kanji come next and to show readings beside our
 entries in the local review sheet. Nothing from them is stored in `data/`. This keeps the option to
-license the data however we choose later.
+license the data however we choose later. (The extension separately shows JMdict's English for words we don't
+have yet; that layer is built in the extension and never enters `data/`.)
 
 ## What's here
 
