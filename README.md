@@ -26,6 +26,7 @@ license the data however we choose later.
 | `scripts/build-review.js` | Validates all data and builds `review/<set>.md` (our entries + KANJIDIC2 readings) | ✅ |
 | `scripts/next-batch.js` | `node scripts/next-batch.js grade-3 100` lists the next kanji to write | ✅ |
 | `data/words/0001-1000.json` | The 1,000 most frequent subtitle words, one entry per line | ✅ |
+| `data/words/watched-NN.json` | Words missing from episodes the owner watched (exported by the extension), same format | ✅ |
 | `scripts/build-freq.js` | Ranks dictionary forms in OpenSubtitles Japanese with kuromoji → `sources/word-freq.json` | ✅ |
 | `scripts/next-words.js` | `node scripts/next-words.js 150` lists the next most frequent words not yet written | ✅ |
 | `scripts/add-words.js` | Appends a drafted batch to a `data/words/` file | ✅ |
@@ -72,6 +73,7 @@ One entry per line, so diffs stay readable and files stay small.
 | Secondary 6 | 110 / 110 | 0 |
 | Words 1–1000 | 1000 / 1000 | 0 |
 | Words 1001–2000 | 150 / 1000 | 0 |
+| Watched (`watched-01`: Sins of Kujo S1E1) | 424 | 0 |
 
 ## Word entry format (`data/words/<range>.json`)
 

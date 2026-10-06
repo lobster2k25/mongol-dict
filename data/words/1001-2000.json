@@ -118,7 +118,7 @@
 {"word":"不","reading":"ふ","alt":[],"pos":"prefix","meanings_mn":["үгүйсгэх угтвар (-гүй, бус)"],"note_kind":"usage","note_mn":"不安 — түгшүүр, 不可能 — боломжгүй, 不便 — тохиромжгүй.","example":{"ja":"それは不公平だ。","mn":"Энэ шударга бус байна."},"status":"machine"},
 {"word":"ちょうだい","reading":"ちょうだい","alt":["頂戴"],"pos":"expression","meanings_mn":["өгөөч (дотно)","...аад өгөөч (〜てちょうだい)"],"note_kind":"","note_mn":"","example":{"ja":"水をちょうだい。","mn":"Ус өгөөч."},"status":"machine"},
 {"word":"世話","reading":"せわ","alt":[],"pos":"noun","meanings_mn":["асрах, халамжлах","тус, ач (お世話になる)"],"note_kind":"","note_mn":"","example":{"ja":"犬の世話を頼む。","mn":"Нохойг асраад өгөөч."},"status":"machine"},
-{"word":"切れる","reading":"きれる","alt":[],"pos":"verb","meanings_mn":["тасрах","(хугацаа) дуусах","(хутга) хурц байх","уурлаж галзуурах"],"note_kind":"","note_mn":"","example":{"ja":"電池が切れた。","mn":"Зай дууссан."},"status":"machine"},
+{"word":"切れる","reading":"きれる","alt":["きれる"],"pos":"verb","meanings_mn":["тасрах","(хугацаа) дуусах","(хутга) хурц байх","уурлаж галзуурах"],"note_kind":"","note_mn":"","example":{"ja":"電池が切れた。","mn":"Зай дууссан."},"status":"machine"},
 {"word":"ガキ","reading":"がき","alt":["餓鬼"],"pos":"noun","meanings_mn":["жаал, хүүхэд (бүдүүлэг)"],"note_kind":"","note_mn":"","example":{"ja":"うるさいガキだな。","mn":"Шуугиантай жаал юм аа."},"status":"machine"},
 {"word":"プログラム","reading":"ぷろぐらむ","alt":[],"pos":"noun","meanings_mn":["программ","хөтөлбөр"],"note_kind":"","note_mn":"","example":{"ja":"このプログラムは古い。","mn":"Энэ программ хуучирсан."},"status":"machine"},
 {"word":"様子","reading":"ようす","alt":[],"pos":"noun","meanings_mn":["байдал, төрх","шинж тэмдэг"],"note_kind":"","note_mn":"","example":{"ja":"ちょっと様子を見てくる。","mn":"Байдлыг нь очиж харчихъя."},"status":"machine"},
