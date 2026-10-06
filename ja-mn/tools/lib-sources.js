@@ -1,7 +1,7 @@
-// Reads the local EDRDG reference files (sources/). Reference only: nothing from here is written to data/.
+// Reads the local EDRDG reference files (sources/). Reference only: nothing from here is written to our entries.
 const fs = require('fs');
 const path = require('path');
-const root = path.join(__dirname, '..');
+const root = path.join(__dirname, '..'); // the ja-mn/ folder
 
 function kanjidic() {
   const xml = fs.readFileSync(path.join(root, 'sources/kanjidic2.xml'), 'utf8');

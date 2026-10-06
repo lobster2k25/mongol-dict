@@ -1,107 +1,82 @@
 # mongol-dict — Нээлттэй монгол толь бичиг
 
-Монгол хэлний нээлттэй, үнэгүй толь бичгийн өгөгдөл. Эхний хэл нь **япон**: бүх 2,136 жёёё ханз (常用漢字),
-кино, цувралын хадмалд хамгийн их гардаг 2,906 үг, тус бүр жишээтэй. Цаашид бусад хэл нэмэгдэнэ.
+Гадаад хэлнээс монгол руу орчуулсан нээлттэй, үнэгүй толь бичгийн өгөгдөл. Хэн ч ашиглаж, засаж, нэмж болно.
+Эхний хэл нь япон; бусад хэлийг ижил бүтцээр нэмнэ ([NEW-LANGUAGE.md](NEW-LANGUAGE.md)).
 
 > [!WARNING]
 > Одоогоор бүх бичлэг **хиймэл оюуны (AI) ноорог** (`status: "machine"`) бөгөөд монгол хэлтэй хүн хараахан
 > хянаагүй. Алдаа олбол засахад туслаарай: [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Яагаад
+## Хэлнүүд
 
-Япон хэл сурах бараг бүх хэрэгсэл EDRDG-ийн JMdict, KANJIDIC2 дээр ажилладаг. Тэдгээрт англи болон Европын
-хэдэн хэлний тайлбар бий, харин **монгол байхгүй**. Япон–монгол толь бичгүүд бүгд арилжааны, хаалттай.
-Энэ төсөл хэн ч ашиглаж, засаж, нэмж болох монгол өгөгдлийг бүтээх зорилготой.
+Хавтас бүр нэг чиглэлийн орчуулга: `<эх хэл>-mn`, хэлний кодыг [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)-ээр.
 
-## Юу байгаа вэ
+| Хавтас | Орчуулга | Агуулга | Хянасан |
+|--------|----------|---------|---------|
+| [`ja-mn/`](ja-mn/) | Япон → Монгол | Өдөр тутмын хэрэглээний 2,136 ханз (常用漢字), кино, цувралын хадмалд хамгийн их гардаг 2,906 үг | 0 |
+| `ko-mn/`, `zh-mn/`, `en-mn/` … | Солонгос, хятад, англи … → Монгол | Хараахан эхлээгүй. [Эхлүүлэх үү?](NEW-LANGUAGE.md) | |
 
-| Хавтас | Агуулга |
-|--------|---------|
-| `data/kanji/<set>.json` | Ханз, Японы сургуулийн ангиар: `grade-1`…`grade-6` (бага анги), `secondary-1`…`secondary-6` (дунд анги) |
-| `data/words/0001-1000.json` … | Үгс, хадмалд гарах давтамжаар эрэмбэлсэн |
-| `data/words/watched-NN.json` | Үзсэн цувралаас олдсон, толь бичигт дутуу байсан үгс |
-| `scripts/` | Өгөгдлийг шалгах, дараагийн үгсийг сонгох скриптүүд |
+## Бүтэц
 
-Файл бүрт **нэг мөр = нэг бичлэг**, тиймээс засвар бүр GitHub дээр тод харагдана.
-
-## Төлөв
-
-| Хэсэг | Бичлэг | Хянасан |
-|-------|--------|---------|
-| Ханз (бүх 常用漢字) | 2,136 / 2,136 | 0 |
-| Үг, давтамжийн 1–3000 | 2,482 | 0 |
-| Үг, үзсэн цувралаас (`watched-01`: Sins of Kujo S1E1) | 424 | 0 |
-
-Эхний 1,000 үг хадмалын үгсийн ~84%-ийг, одоогийн 2,906 үг ~90%-ийг хамардаг.
-
-## Бичлэгийн хэлбэр
-
-Ханз (`data/kanji/<set>.json`):
-
-```json
-{
-  "kanji": "休",
-  "meanings_mn": ["амрах"],
-  "note_kind": "origin",
-  "note_mn": "Хүн (亻) модны (木) сүүдэрт амарч байна.",
-  "examples": [{ "word": "休む", "reading": "やすむ", "mn": "амрах" }],
-  "status": "machine"
-}
+```text
+mongol-dict/
+├── ja-mn/                Япон → Монгол
+│   ├── words/            үгс (бүх хэлд ижил хэлбэртэй)
+│   ├── kanji/            ханз (зөвхөн япон хэлэнд)
+│   ├── tools/            япон хэлний туслах скрипт (дараагийн үгсийг сонгох г.м.)
+│   └── README.md         энэ хэлний дэлгэрэнгүй
+├── tools/validate.js     бүх хэлний өгөгдлийг шалгана
+├── NEW-LANGUAGE.md       шинэ хэл нэмэх заавар
+└── CONTRIBUTING.md       хэрхэн оролцох
 ```
 
-Үг (`data/words/*.json`):
+**Өгөгдөл** нь `words/`, `kanji/` доторх JSON файлууд; файл бүрт **нэг мөр = нэг бичлэг**, тиймээс засвар бүр
+GitHub дээр тод харагдана. **Скриптүүд** өгөгдөл биш, ажлын хэрэгсэл: `tools/validate.js` алдаа шалгана,
+`<хэл>-mn/tools/` нь тухайн хэлний дараагийн үгсийг давтамжаар сонгоход тусална. Толь бичгийг ашиглахад скрипт
+шаардлагагүй.
+
+## Үгийн бичлэг (бүх хэлд ижил)
 
 ```json
-{
-  "word": "分かる", "reading": "わかる", "alt": ["わかる", "解る"], "pos": "verb",
+{ "word": "分かる", "reading": "わかる", "alt": ["わかる", "解る"], "pos": "verb",
   "meanings_mn": ["ойлгох, мэдэх"], "note_kind": "", "note_mn": "",
-  "example": { "ja": "分かった。", "mn": "Ойлголоо." }, "status": "machine"
-}
+  "example": { "ja": "分かった。", "mn": "Ойлголоо." }, "status": "machine" }
 ```
 
 | Талбар | Утга |
 |--------|------|
-| `word`, `alt` | Толь бичгийн хэлбэр, бусад бичлэг (кана, өөр ханз) |
-| `reading` | Хираганаар унших нь |
-| `pos` | Үгсийн аймаг: noun, verb, adj-i, adj-na, adverb, particle, expression гэх мэт |
-| `note_kind` | `origin` (ханзны гарал), `mnemonic` (цээжлэх арга, гарал үүсэл **биш**), `compare` (япон–монгол харьцуулалт), `usage` (хэрэглээний зөвлөгөө), эсвэл хоосон |
+| `word` | Эх хэл дээрх толь бичгийн хэлбэр |
+| `reading` | Дуудлага, тухайн хэлний заншлаар (япон: хирагана, хятад: пиньинь); шаардлагагүй бол `""` |
+| `alt` | Өөр бичлэгүүд (жишээ нь кана, өөр ханз); байхгүй бол `[]` |
+| `pos` | Үгсийн аймаг: `noun`, `verb`, `adjective`, `adverb`, `particle`, `expression` … (бүтэн жагсаалт: [`tools/validate.js`](tools/validate.js)) |
+| `meanings_mn` | Монгол утгууд, нэг утга = нэг мөр |
+| `note_kind`, `note_mn` | Тэмдэглэл: `origin` (гарал), `mnemonic` (цээжлэх арга, гарал **биш**), `compare` (монгол хэлтэй харьцуулалт), `usage` (хэрэглээ), эсвэл хоосон |
+| `example` | Жишээ өгүүлбэр: эх хэлний кодоор (`ja`, `ko` …) ба `mn` |
 | `status` | `machine` (AI ноорог, хянаагүй) → `reviewed` (монгол хэлтэй хүн хянасан) |
 
 ## Бие даасан байдлын дүрэм
 
-Монгол агуулгыг шууд бичсэн: JMdict, KANJIDIC2-ыг утга бүрээр орчуулаагүй, бусад толь бичиг, апп, хадмалаас
-хуулаагүй. Жишээ өгүүлбэрүүд энэ толь бичигт зориулж зохиогдсон. Оролцогчид мөн адил дүрэм баримтална.
+Монгол агуулгыг шууд бичнэ: бусад толь бичиг, апп, JMdict, кино хадмал, машин орчуулгаас хуулахгүй.
+Жишээ өгүүлбэрүүд энэ толь бичигт зориулж зохиогдоно.
 
 ## Лиценз
 
-- **Өгөгдөл** (`data/`): [CC BY-SA 4.0](LICENSE). Хэн ч, арилжааны зорилгоор ч ашиглаж болно. Нөхцөл:
-  эх сурвалжийг дурдах («mongol-dict, CC BY-SA 4.0» ба энэ хуудасны холбоос), өөрчилсөн хувилбараа ижил
-  лицензээр түгээх.
-- **Скриптүүд** (`scripts/`): [MIT](scripts/LICENSE).
+- **Өгөгдөл** (`*/words/`, `*/kanji/`): [CC BY-SA 4.0](LICENSE). Хэн ч, арилжааны зорилгоор ч ашиглаж болно.
+  Нөхцөл: эх сурвалжийг дурдах («mongol-dict, CC BY-SA 4.0» ба энэ хуудасны холбоос), өөрчилсөн хувилбараа
+  ижил лицензээр түгээх.
+- **Скриптүүд** (`tools/`, `*/tools/`): [MIT](LICENSE-CODE).
 
 ---
 
 ## English
 
-Open Mongolian dictionary data, starting with Japanese: all 2,136 jōyō kanji and the 2,906 most frequent
-subtitle words, each with Mongolian (Cyrillic) meanings and an example. Every entry is currently an
-**unreviewed AI draft** (`status: "machine"`); review and corrections from Mongolian speakers are the most
-valuable contribution. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Open dictionary data from other languages **into Mongolian** (Cyrillic). Each folder is one direction,
+`<source>-mn/` with ISO 639-1 codes. The first is `ja-mn/` (Japanese → Mongolian): all 2,136 jōyō kanji and the
+2,906 most frequent subtitle words. Every entry is currently an **unreviewed AI draft**.
 
-The Mongolian content is written independently, not translated from JMdict/KANJIDIC2 or copied from other
-dictionaries. Data is licensed **CC BY-SA 4.0** ([LICENSE](LICENSE)); scripts are **MIT** ([scripts/LICENSE](scripts/LICENSE)).
-
-### For maintainers
-
-| Command | What it does |
-|---------|--------------|
-| `sh scripts/fetch-sources.sh` | Downloads reference files into `sources/` (EDRDG KANJIDIC2/KRADFILE/JMdict, OPUS OpenSubtitles). Local only, never committed |
-| `npm install` | Installs kuromoji (Japanese tokenizer) |
-| `node scripts/build-freq.js` | Ranks dictionary forms in ~3.2M subtitle lines → `sources/word-freq.json` (~1 min) |
-| `node scripts/next-batch.js <set> [n]` | Lists kanji of a set not yet written |
-| `node scripts/next-words.js [n]` | Lists the next most frequent words not yet covered (by `word` or `alt`) |
-| `node scripts/add-words.js <batch> [range]` | Appends a drafted batch to a `data/words/` file |
-| `node scripts/build-review.js` | Validates everything (duplicates, set membership, examples contain the headword, no Latin letters in Mongolian) and builds `review/*.md`. Must print 0 problems before a commit |
-
-The EDRDG files are a reference only: they decide which kanji come next and show readings beside our entries
-in the local review sheets. Nothing from them is stored in `data/`.
+- Word entries share one format across languages (table above); `example` is keyed by the source language code.
+- `tools/validate.js` checks every language folder and needs no downloads. `<lang>-mn/tools/` holds that
+  language's helpers (word frequency, next batch, review sheets).
+- Adding a language: [NEW-LANGUAGE.md](NEW-LANGUAGE.md). Contributing: [CONTRIBUTING.md](CONTRIBUTING.md).
+- Mongolian content is written independently, never copied from other dictionaries or translated from JMdict.
+- Data: **CC BY-SA 4.0** ([LICENSE](LICENSE)). Code: **MIT** ([LICENSE-CODE](LICENSE-CODE)).

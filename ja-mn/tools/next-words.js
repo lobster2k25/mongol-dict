@@ -1,5 +1,5 @@
-// Lists the most frequent subtitle words not yet in data/words/, from sources/word-freq.json.
-// Usage: node scripts/next-words.js [count]
+// Lists the most frequent subtitle words not yet in ja-mn/words/, from sources/word-freq.json.
+// Usage: node ja-mn/tools/next-words.js [count]
 const fs = require('fs');
 const path = require('path');
 const { root } = require('./lib-sources');
@@ -12,7 +12,7 @@ const SKIP = new Set(['ン', 'う', 'こ', 'え', 'く', 'ら', 'お', 'ご', '�
 
 const [count = 100] = process.argv.slice(2);
 const freq = JSON.parse(fs.readFileSync(path.join(root, 'sources/word-freq.json'), 'utf8'));
-const dir = path.join(root, 'data/words');
+const dir = path.join(root, 'words');
 const done = new Set();
 if (fs.existsSync(dir)) {
   for (const f of fs.readdirSync(dir).filter((f) => f.endsWith('.json'))) {

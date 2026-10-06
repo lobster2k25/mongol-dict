@@ -2,7 +2,7 @@
 // words to write next. Input: sources/opensubtitles-ja.txt (OPUS OpenSubtitles v2018 Japanese, ~3.2M lines;
 // reference only, like KANJIDIC). Each line is split with kuromoji and counts go to the dictionary form,
 // so 言って, 言った, 言わない all count as 言う.
-// Usage: node scripts/build-freq.js [maxLines]
+// Usage: node ja-mn/tools/build-freq.js [maxLines]
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
@@ -13,7 +13,7 @@ const hira = (s) => s.replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCod
 const japanese = /[぀-ヿ一-鿿]/;
 const maxLines = +(process.argv[2] || Infinity);
 
-kuromoji.builder({ dicPath: path.join(root, 'node_modules/kuromoji/dict') }).build(async (err, tk) => {
+kuromoji.builder({ dicPath: path.join(path.dirname(require.resolve('kuromoji/package.json')), 'dict') }).build(async (err, tk) => {
   if (err) throw err;
   const freq = new Map();
   const rl = readline.createInterface({ input: fs.createReadStream(path.join(root, 'sources/opensubtitles-ja.txt')) });

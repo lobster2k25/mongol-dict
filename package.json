@@ -1,10 +1,13 @@
 {
   "name": "mongol-dict",
   "private": true,
-  "description": "Open Mongolian dictionary data, starting with Japanese (kanji and words)",
+  "description": "Open dictionary data into Mongolian, starting with Japanese",
   "license": "SEE LICENSE IN README.md",
   "dependencies": {
     "kuromoji": "^0.1.2"
   },
-  "repository": "github:lobster2k25/mongol-dict"
+  "repository": "github:lobster2k25/mongol-dict",
+  "scripts": {
+    "validate": "node tools/validate.js"
+  }
 }
