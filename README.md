@@ -59,7 +59,7 @@ One entry per line, so diffs stay readable and files stay small.
 | Grade 3 | 200 / 200 | 0 |
 | Grade 4 | 202 / 202 | 0 |
 | Grade 5 | 193 / 193 | 0 |
-| Grade 6 | 0 / 191 | 0 |
+| Grade 6 | 191 / 191 | 0 |
 | Secondary jōyō | 0 / 1,110 | 0 |
 
 ## Workflow
