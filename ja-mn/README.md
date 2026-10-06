@@ -13,6 +13,8 @@
 Одоогийн үг, нэрс кино, цувралын хадмал дахь бүх үгийн **~89%**-ийг хамардаг (тоо, цэг таслалаас
 бусад бүх үгтэй, хүний нэрийг оролцуулан харьцуулж тоолсон).
 
+Хийх ажлын жагсаалт: [TODO.md](TODO.md).
+
 | Файл | Агуулга |
 |------|---------|
 | `kanji/grade-1.json` … `grade-6.json` | Японы бага сургуулийн 1–6-р ангид заадаг ханз (教育漢字) |
@@ -117,6 +119,7 @@
   word id sequence. No one-character abbreviations in `alt` (米, 中, 日 are ordinary words). Given names and
   character names are not included. Transcription: established Mongolian names first (Токио, Нью-Йорк), otherwise
   the table above; long vowels not doubled, っ doubles the next consonant, い after a vowel becomes й.
+- **To do**: [TODO.md](TODO.md).
 - **Tools** (run from the repo root): `fetch-sources.sh` downloads reference files (never committed);
   `build-freq.js` counts words, proper nouns and total tokens in ~3.2M subtitle lines; `next-words.js`,
   `next-batch.js` list what to write next; `add-words.js` appends a batch and assigns ids; `build-review.js` runs
