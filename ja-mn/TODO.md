@@ -12,8 +12,8 @@
 
 ## Агуулга (дарааллаар)
 
-- [ ] **Хэллэг, мэндчилгээ** (~300): お願いします, いらっしゃいませ, お疲れ様, お帰りなさい, お大事に. Хадмал дахь
-      олон үгтэй дарааллыг тоолж эрэмбэлнэ (одоогийн тоолуур ганц үгээр тоолдог тул эдгээр орхигдсон)
+- [ ] **Хэллэг, мэндчилгээ**: 143 бичигдсэн (`words/phrases-01.json`). Дараагийнх: `node ja-mn/tools/next-words.js 200 phrases`
+      (`build-phrases.js` хадмал дахь 2–5 үгтэй хэллэгийг тоолно; 3,594 хэллэг 5-аас дээш удаа гардаг)
 - [ ] **Дуу дуурайх, дүр дуурайх үг** (擬音語・擬態語, ~200): うろうろ, うっかり, おろおろ, カチカチ. Анимед маш их
 - [ ] **Нэр мэт харагддаг энгийн үг**: 米 (будаа), 巨人 (аварга) г.м. Kuromoji оноосон нэр гэж ангилдаг тул алгассан
 - [ ] **Тоо, тоолох нөхцөл**: 二人, 五つ, 冊, 皿, 枚 г.м. (~80)
@@ -45,8 +45,8 @@
 
 Coverage: ~89% of all subtitle tokens, 17.8% of JMdict's 22,645 "common" entries; 0 entries reviewed.
 
-**Content, in order:** set phrases and greetings (~300; need multi-token frequency counting, the current counter
-works per token), onomatopoeia (~200), common words the tokenizer labels as proper nouns (米, 巨人), numbers and
+**Content, in order:** set phrases and greetings (143 done in `phrases-01`; `build-phrases.js` counts 2-5 token
+phrases, next ones via `next-words.js 200 phrases`), onomatopoeia (~200), common words the tokenizer labels as proper nouns (米, 巨人), numbers and
 counters (~80), four-character idioms (~50), proverbs (~15), then continue down the frequency list and add words
 from watched anime/drama. Given names and character names stay out.
 

@@ -72,7 +72,9 @@ for (const file of fs.existsSync(wdir) ? fs.readdirSync(wdir).filter((f) => f.en
     if (!/^[぀-ゟー]+$/.test(e.reading)) warn(`reading not hiragana: ${e.reading}`);
     // The example must show the word: as written, in an alternate spelling, or (if it inflects) by its stem.
     const forms = [e.word, ...e.alt];
-    const stems = INFLECTS.includes(e.pos) ? forms.map((w) => w.slice(0, -1)).filter(Boolean) : [];
+    // Phrases ending in a verb or い-adjective (手に入れる, いい加減にする) inflect too: drop する, or the last kana.
+    const inflects = INFLECTS.includes(e.pos) || (e.pos === 'expression' && /[うくぐすつぬぶむるい]$/.test(e.word));
+    const stems = inflects ? forms.map((w) => w.replace(/する$|.$/, '')).filter(Boolean) : [];
     if (e.word === 'する') stems.push('し', 'さ', 'せ');
     if (![...forms, ...stems].some((w) => e.example.ja.includes(w))) warn(`example lacks the word: ${e.example.ja}`);
     const mn = [...e.meanings_mn, e.note_mn, e.example.mn].join(' ');

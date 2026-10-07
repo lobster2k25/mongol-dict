@@ -8,6 +8,7 @@
 | Үг, хадмалын давтамжийн 1–3000 | 2,482 | 0 |
 | Үг, хадмалын давтамжийн 3001–4000 | 859 | 0 |
 | Үг, үзсэн цувралаас (`watched-01`: Sins of Kujo S1E1) | 424 | 0 |
+| Хэллэг, мэндчилгээ (`phrases-01`: хадмалд хамгийн их гардаг) | 143 | 0 |
 | Оноосон нэр: улс, газар, байгууллага, овог | 907 | 0 |
 
 Одоогийн үг, нэрс кино, цувралын хадмал дахь бүх үгийн **~89%**-ийг хамардаг (тоо, цэг таслалаас
@@ -21,6 +22,7 @@
 | `kanji/secondary-1.json` … `secondary-6.json` | Үлдсэн өдөр тутмын хэрэглээний ханз (дунд сургуулиас дээш) |
 | `words/0001-1000.json` … | Үгс, хадмалд гарах давтамжаар эрэмбэлсэн |
 | `words/watched-NN.json` | Үзсэн цувралаас олдсон, толь бичигт дутуу байсан үгс |
+| `words/phrases-NN.json` | Олон үгтэй хэллэг (お願いします, 気をつける, 嘘をつく), хадмалд гарах давтамжаар |
 | `names/countries.json` | Дэлхийн бүх улс, тив, бүс нутаг |
 | `names/japan.json` | Японы 47 муж, хотууд, Токиогийн хороо, дүүрэг, бүс нутаг, үзэсгэлэнт газар |
 | `names/world.json` | Гадаадын хот, муж, арал, далай |
@@ -113,7 +115,7 @@
 
 ## English
 
-- **Contents**: 2,136 jōyō kanji, 3,765 words, 907 proper nouns (`names/`: countries, places, organisations,
+- **Contents**: 2,136 jōyō kanji, 3,908 words (143 of them set phrases, `words/phrases-NN.json`), 907 proper nouns (`names/`: countries, places, organisations,
   surnames); together ~89% of all subtitle tokens (measured against every token except punctuation and numbers).
 - **Names** use their own format (`kind`, `mn` = the name in Mongolian, `desc_mn` = short description) and share the
   word id sequence. No one-character abbreviations in `alt` (米, 中, 日 are ordinary words). Given names and
