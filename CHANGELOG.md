@@ -9,8 +9,8 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
   хэллэг: お願いします, 気をつける, よろしくお願いします, 嘘をつく, 手に負えない, この野郎. Хадмалаас 2–5 үгтэй
   дарааллаар тоолсон (`ja-mn/tools/build-phrases.js`). / **Set phrases** (439): the most frequent multi-word
   phrases in subtitles, counted 2-5 tokens at a time.
-- Одоо байгаа 56 бичлэгт өөр бичлэг нэмэгдсэн (済みません → すみません, 馬鹿野郎 → バカ野郎); `id` өөрчлөгдөөгүй.
-  / 56 existing entries gained alternate spellings; word ids unchanged.
+- Одоо байгаа 43 бичлэгт өөр бичлэг нэмэгдсэн (済みません → すみません, 馬鹿野郎 → バカ野郎); `id` өөрчлөгдөөгүй.
+  / 43 existing entries gained alternate spellings; word ids unchanged.
 
 ## 0.2.0 — 2026-10-06
 
