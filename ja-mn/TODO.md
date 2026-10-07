@@ -12,7 +12,7 @@
 
 ## Агуулга (дарааллаар)
 
-- [ ] **Хэллэг, мэндчилгээ**: 143 бичигдсэн (`words/phrases-01.json`). Дараагийнх: `node ja-mn/tools/next-words.js 200 phrases`
+- [ ] **Хэллэг, мэндчилгээ**: 295 бичигдсэн (`words/phrases-01.json`). Дараагийнх: `node ja-mn/tools/next-words.js 200 phrases`
       (`build-phrases.js` хадмал дахь 2–5 үгтэй хэллэгийг тоолно; 3,594 хэллэг 5-аас дээш удаа гардаг)
 - [ ] **Дуу дуурайх, дүр дуурайх үг** (擬音語・擬態語, ~200): うろうろ, うっかり, おろおろ, カチカチ. Анимед маш их
 - [ ] **Нэр мэт харагддаг энгийн үг**: 米 (будаа), 巨人 (аварга) г.м. Kuromoji оноосон нэр гэж ангилдаг тул алгассан
@@ -45,7 +45,7 @@
 
 Coverage: ~89% of all subtitle tokens, 17.8% of JMdict's 22,645 "common" entries; 0 entries reviewed.
 
-**Content, in order:** set phrases and greetings (143 done in `phrases-01`; `build-phrases.js` counts 2-5 token
+**Content, in order:** set phrases and greetings (295 done in `phrases-01`; `build-phrases.js` counts 2-5 token
 phrases, next ones via `next-words.js 200 phrases`), onomatopoeia (~200), common words the tokenizer labels as proper nouns (米, 巨人), numbers and
 counters (~80), four-character idioms (~50), proverbs (~15), then continue down the frequency list and add words
 from watched anime/drama. Given names and character names stay out.

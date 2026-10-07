@@ -317,7 +317,7 @@
 {"id":316,"word":"得る","reading":"える","alt":["うる","える"],"pos":"verb","meanings_mn":["олж авах","...ж болох (ありうる)"],"note_kind":"","note_mn":"","example":{"ja":"それはあり得る。","mn":"Тийм байж болно."},"status":"machine"},
 {"id":317,"word":"開ける","reading":"あける","alt":[],"pos":"verb","meanings_mn":["нээх"],"note_kind":"","note_mn":"","example":{"ja":"ドアを開けて。","mn":"Хаалгаа нээ."},"status":"machine"},
 {"id":318,"word":"くらい","reading":"くらい","alt":["ぐらい","位"],"pos":"particle","meanings_mn":["орчим, хэрээр","...ч гэсэн (наад зах нь)"],"note_kind":"","note_mn":"","example":{"ja":"十分くらい待って。","mn":"Арав орчим минут хүлээ."},"status":"machine"},
-{"id":319,"word":"こいつ","reading":"こいつ","alt":[],"pos":"pronoun","meanings_mn":["энэ нөхөр, энэ (ярианы)"],"note_kind":"","note_mn":"","example":{"ja":"こいつは誰だ？","mn":"Энэ нөхөр хэн бэ?"},"status":"machine"},
+{"id":319,"word":"こいつ","reading":"こいつ","alt":["此奴"],"pos":"pronoun","meanings_mn":["энэ нөхөр, энэ (ярианы)"],"note_kind":"","note_mn":"","example":{"ja":"こいつは誰だ？","mn":"Энэ нөхөр хэн бэ?"},"status":"machine"},
 {"id":320,"word":"何で","reading":"なんで","alt":["なんで"],"pos":"adverb","meanings_mn":["яагаад (ярианы)"],"note_kind":"","note_mn":"","example":{"ja":"何で笑うの？","mn":"Яагаад инээгээд байгаа юм?"},"status":"machine"},
 {"id":321,"word":"理解","reading":"りかい","alt":[],"pos":"noun","meanings_mn":["ойлголт, ойлгох"],"note_kind":"","note_mn":"","example":{"ja":"理解できない。","mn":"Ойлгож чадахгүй байна."},"status":"machine"},
 {"id":322,"word":"あげる","reading":"あげる","alt":["上げる","挙げる"],"pos":"verb","meanings_mn":["(бусдад) өгөх","өргөх (上げる)","...ж өгөх (てあげる)"],"note_kind":"","note_mn":"","example":{"ja":"これ、あげる。","mn":"Үүнийг чамд өгье."},"status":"machine"},

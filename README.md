@@ -13,7 +13,7 @@
 
 | Хавтас | Орчуулга | Агуулга | Хянасан |
 |--------|----------|---------|---------|
-| [`ja-mn/`](ja-mn/) | Япон → Монгол | Өдөр тутмын хэрэглээний 2,136 ханз (常用漢字), кино, цувралын хадмалд хамгийн их гардаг 3,908 үг, хэллэг, 907 оноосон нэр (улс, газар, байгууллага, овог) | 0 |
+| [`ja-mn/`](ja-mn/) | Япон → Монгол | Өдөр тутмын хэрэглээний 2,136 ханз (常用漢字), кино, цувралын хадмалд хамгийн их гардаг 4,060 үг, хэллэг, 907 оноосон нэр (улс, газар, байгууллага, овог) | 0 |
 | `ko-mn/`, `zh-mn/`, `en-mn/` … | Солонгос, хятад, англи … → Монгол | Хараахан эхлээгүй. [Эхлүүлэх үү?](NEW-LANGUAGE.md) | |
 
 ## Татах
@@ -98,7 +98,7 @@ Pull request бүрт GitHub `tools/validate.js`-г автоматаар ажи�
 
 Open dictionary data from other languages **into Mongolian** (Cyrillic). Each folder is one direction,
 `<source>-mn/` with ISO 639-1 codes. The first is `ja-mn/` (Japanese → Mongolian): all 2,136 jōyō kanji and the
-3,908 most frequent subtitle words and set phrases, plus 907 proper nouns (countries, places, organisations, surnames). Every entry is currently an **unreviewed AI draft**.
+4,060 most frequent subtitle words and set phrases, plus 907 proper nouns (countries, places, organisations, surnames). Every entry is currently an **unreviewed AI draft**.
 
 - Word entries share one format across languages (table above); `example` is keyed by the source language code.
 - **Permanent ids**: every word has an `id` that never changes and is never reused, so other projects can link to
