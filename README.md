@@ -78,7 +78,7 @@ Pull request бүрт GitHub `tools/validate.js`-г автоматаар ажи�
 | `pos` | Үгсийн аймаг: `noun`, `verb`, `adjective`, `adverb`, `particle`, `expression` … (бүтэн жагсаалт: [`tools/validate.js`](tools/validate.js)) |
 | `meanings_mn` | Монгол утгууд, нэг утга = нэг мөр |
 | `note_kind`, `note_mn` | Тэмдэглэл: `origin` (гарал), `mnemonic` (цээжлэх арга, гарал **биш**), `compare` (монгол хэлтэй харьцуулалт), `usage` (хэрэглээ), эсвэл хоосон |
-| `examples` | Хоёр жишээ өгүүлбэр, тус бүр эх хэлний кодоор (`ja`, `ko` …) ба `mn`. Хуучин зарим бичлэгт одоогоор нэг л жишээ байгаа |
+| `examples` | Хоёр жишээ өгүүлбэр, тус бүр эх хэлний кодоор (`ja`, `ko` …) ба `mn` |
 | `status` | `machine` (AI ноорог, хянаагүй) → `reviewed` (монгол хэлтэй хүн хянасан) |
 
 ## Бие даасан байдлын дүрэм

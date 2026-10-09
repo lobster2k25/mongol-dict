@@ -52,7 +52,6 @@ const langs = fs.readdirSync(root).filter((d) => /^[a-z]{2,3}-mn$/.test(d) && fs
 for (const lang of langs) {
   const src = lang.split('-')[0];
   let count = 0;
-  let oneExample = 0; // words still waiting for their second example
 
   const wdir = path.join(root, lang, 'words');
   const seen = new Set();
@@ -73,10 +72,9 @@ for (const lang of langs) {
       if (seen.has(key)) warn('duplicate (same word and pos)');
       seen.add(key);
       checkCommon(e, warn);
-      // Two examples per word; older entries still have one until the backfill is done.
+      // Every word has two example sentences.
       const examples = Array.isArray(e.examples) ? e.examples : [];
-      if (!examples.length || examples.length > 2) warn('examples must be a list of 1–2 sentences');
-      else if (examples.length < 2) oneExample++;
+      if (examples.length !== 2) warn('examples must be a list of 2 sentences');
       for (const ex of examples) {
         if (typeof ex[src] !== 'string' || !ex[src].trim()) warn(`example.${src} is missing`);
         if (typeof ex.mn !== 'string' || !ex.mn.trim()) warn('example.mn is missing');
@@ -161,7 +159,7 @@ for (const lang of langs) {
     }
   }
 
-  console.log(`${lang}: ${count} entries${oneExample ? ` (${oneExample} words have 1 example, aim for 2)` : ''}`);
+  console.log(`${lang}: ${count} entries`);
 }
 
 for (const line of report.slice(0, 200)) console.log(line);

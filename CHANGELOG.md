@@ -5,9 +5,11 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
 
 ## Дараагийн хувилбар / Unreleased
 
-- **Формат өөрчлөгдсөн**: үгийн `example` → `examples` (1–2 өгүүлбэрийн жагсаалт). Бүх үгэнд хоёр дахь жишээ
-  нэмж байна. / **Format change**: word `example` is now `examples`, a list of 1–2 sentences; a second example
-  is being added to every word.
+- **Формат өөрчлөгдсөн**: үгийн `example` → `examples` (2 өгүүлбэрийн жагсаалт). Бүх 4,362 үг хоёр жишээтэй
+  боллоо. / **Format change**: word `example` is now `examples`, a list of 2 sentences; all 4,362 words
+  now have two examples.
+- **Хэллэг** 158 нэмэгдэж 597 боллоо (`phrases-01`); 17 бичлэгт өөр бичлэг нэмэгдсэн. / **Phrases**: 158 more (597).
+  17 existing entries gained alternate spellings.
 
 ## 0.3.0 — 2026-10-08
 
