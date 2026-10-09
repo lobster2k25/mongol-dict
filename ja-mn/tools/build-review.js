@@ -76,6 +76,8 @@ for (const file of fs.existsSync(wdir) ? fs.readdirSync(wdir).filter((f) => f.en
     const inflects = INFLECTS.includes(e.pos) || (e.pos === 'expression' && /[うくぐすつぬぶむるい]$/.test(e.word));
     const stems = inflects ? forms.map((w) => w.replace(/する$|.$/, '')).filter(Boolean) : [];
     if (e.word === 'する') stems.push('し', 'さ', 'せ');
+    // くる is irregular: やってくる → やってきた, 来る → 来ない.
+    for (const w of forms) if (/(くる|来る)$/.test(w)) stems.push(w.replace(/くる$/, 'き'), w.replace(/くる$/, 'こ'), w.replace(/来る$/, '来'));
     for (const ex of e.examples) if (![...forms, ...stems].some((w) => ex.ja.includes(w))) warn(`example lacks the word: ${ex.ja}`);
     const mn = [...e.meanings_mn, e.note_mn, ...e.examples.map((ex) => ex.mn)].join(' ');
     if (/[A-Za-zÀ-ɏ]/.test(mn)) warn(`Latin letter in Mongolian text: ${mn.match(/\S*[A-Za-zÀ-ɏ]\S*/)[0]}`);
