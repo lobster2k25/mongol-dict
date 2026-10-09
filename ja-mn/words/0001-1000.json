@@ -859,7 +859,7 @@
 {"id":858,"word":"運命","reading":"うんめい","alt":[],"pos":"noun","meanings_mn":["хувь заяа"],"note_kind":"","note_mn":"","examples":[{"ja":"これは運命だ。","mn":"Энэ бол хувь заяа."}],"status":"machine"},
 {"id":859,"word":"幸運","reading":"こううん","alt":[],"pos":"noun","meanings_mn":["аз"],"note_kind":"","note_mn":"","examples":[{"ja":"幸運を祈る。","mn":"Амжилт хүсье (аз дайрах болтугай)."}],"status":"machine"},
 {"id":860,"word":"昨夜","reading":"ゆうべ","alt":["さくや"],"pos":"noun","meanings_mn":["өчигдөр орой, өнгөрсөн шөнө"],"note_kind":"","note_mn":"","examples":[{"ja":"昨夜は眠れなかった。","mn":"Өнгөрсөн шөнө унтаж чадаагүй."}],"status":"machine"},
-{"id":861,"word":"えっと","reading":"えっと","alt":["えと","ええと","えーと"],"pos":"interjection","meanings_mn":["аан, нөгөө (бодох)"],"note_kind":"","note_mn":"","examples":[{"ja":"えっと、何だっけ？","mn":"Аан, юу билээ?"}],"status":"machine"},
+{"id":861,"word":"えっと","reading":"えっと","alt":["えと","ええと","えーと","ええっと"],"pos":"interjection","meanings_mn":["аан, нөгөө (бодох)"],"note_kind":"","note_mn":"","examples":[{"ja":"えっと、何だっけ？","mn":"Аан, юу билээ?"}],"status":"machine"},
 {"id":862,"word":"願う","reading":"ねがう","alt":[],"pos":"verb","meanings_mn":["хүсэх, ерөөх"],"note_kind":"","note_mn":"","examples":[{"ja":"幸せを願ってる。","mn":"Аз жаргал хүсье."}],"status":"machine"},
 {"id":863,"word":"警告","reading":"けいこく","alt":[],"pos":"noun","meanings_mn":["сануулга, анхааруулга"],"note_kind":"","note_mn":"","examples":[{"ja":"これは警告だ。","mn":"Энэ бол сануулга."}],"status":"machine"},
 {"id":864,"word":"デート","reading":"でーと","alt":[],"pos":"noun","meanings_mn":["болзоо"],"note_kind":"","note_mn":"","examples":[{"ja":"デートしよう。","mn":"Болзоонд явъя."}],"status":"machine"},
