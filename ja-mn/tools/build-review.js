@@ -76,13 +76,13 @@ for (const file of fs.existsSync(wdir) ? fs.readdirSync(wdir).filter((f) => f.en
     const inflects = INFLECTS.includes(e.pos) || (e.pos === 'expression' && /[うくぐすつぬぶむるい]$/.test(e.word));
     const stems = inflects ? forms.map((w) => w.replace(/する$|.$/, '')).filter(Boolean) : [];
     if (e.word === 'する') stems.push('し', 'さ', 'せ');
-    if (![...forms, ...stems].some((w) => e.example.ja.includes(w))) warn(`example lacks the word: ${e.example.ja}`);
-    const mn = [...e.meanings_mn, e.note_mn, e.example.mn].join(' ');
+    for (const ex of e.examples) if (![...forms, ...stems].some((w) => ex.ja.includes(w))) warn(`example lacks the word: ${ex.ja}`);
+    const mn = [...e.meanings_mn, e.note_mn, ...e.examples.map((ex) => ex.mn)].join(' ');
     if (/[A-Za-zÀ-ɏ]/.test(mn)) warn(`Latin letter in Mongolian text: ${mn.match(/\S*[A-Za-zÀ-ɏ]\S*/)[0]}`);
   }
   words += entries.length;
   const icon = { origin: '📜 ', mnemonic: '💡 ', compare: '🇲🇳 ', usage: '📝 ' };
-  const rows = entries.map((e, i) => `| ${i + 1} | **${e.word}** | ${e.reading} | ${cell(e.alt.join('、'))} | ${e.pos} | ${cell(e.meanings_mn.join('; '))} | ${cell((icon[e.note_kind] || '') + e.note_mn)} | ${cell(e.example.ja)}<br>${cell(e.example.mn)} | ${e.status === 'reviewed' ? '☑' : '☐'} |`);
+  const rows = entries.map((e, i) => `| ${i + 1} | **${e.word}** | ${e.reading} | ${cell(e.alt.join('、'))} | ${e.pos} | ${cell(e.meanings_mn.join('; '))} | ${cell((icon[e.note_kind] || '') + e.note_mn)} | ${e.examples.map((ex) => `${cell(ex.ja)}<br>${cell(ex.mn)}`).join('<br><br>')} | ${e.status === 'reviewed' ? '☑' : '☐'} |`);
   const range = file.replace('.json', '');
   fs.writeFileSync(path.join(root, `review/words-${range}.md`), `# Review: words ${range} (${entries.length})
 

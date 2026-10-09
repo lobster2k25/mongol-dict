@@ -30,15 +30,15 @@ ko-mn/
 
 ```json
 [
-{"word":"사랑","reading":"","alt":[],"pos":"noun","meanings_mn":["хайр, хайр сэтгэл"],"note_kind":"","note_mn":"","example":{"ko":"사랑해요.","mn":"Би чамд хайртай."},"status":"machine"},
-{"word":"먹다","reading":"","alt":[],"pos":"verb","meanings_mn":["идэх"],"note_kind":"","note_mn":"","example":{"ko":"밥을 먹었어요.","mn":"Хоол идлээ."},"status":"machine"}
+{"word":"사랑","reading":"","alt":[],"pos":"noun","meanings_mn":["хайр, хайр сэтгэл"],"note_kind":"","note_mn":"","examples":[{"ko":"사랑해요.","mn":"Би чамд хайртай."},{"ko":"사랑은 어려워요.","mn":"Хайр гэдэг хэцүү юм."}],"status":"machine"},
+{"word":"먹다","reading":"","alt":[],"pos":"verb","meanings_mn":["идэх"],"note_kind":"","note_mn":"","examples":[{"ko":"밥을 먹었어요.","mn":"Хоол идлээ."},{"ko":"뭐 먹고 싶어요?","mn":"Юу идмээр байна?"}],"status":"machine"}
 ]
 ```
 
 | Дүрэм | Тайлбар |
 |-------|---------|
 | `word` | Толь бичгийн хэлбэр (үйл үг бол үндсэн хэлбэр: 먹었어요 биш, 먹다) |
-| `example` | Түлхүүр нь хэлний код: `{"ko": "...", "mn": "..."}`. Өгүүлбэрийг өөрөө зохио |
+| `examples` | Хоёр өгүүлбэр, түлхүүр нь хэлний код: `[{"ko": "...", "mn": "..."}, {...}]`. Өгүүлбэрийг өөрөө зохио |
 | Нэг үг, хоёр аймаг | Тусдаа бичлэг (`word` + `pos` давхардахгүй) |
 | Монгол талбарууд | Латин үсэггүй, албан ёсны зөв бичгийн дүрмээр |
 | `status` | AI-аар гаргасан бол `machine`; хүн бүрэн шалгасан бол `reviewed` |
@@ -74,8 +74,8 @@ node tools/validate.js
    `reading` holds for this language, and any extra `pos` values.
 2. **Create `<code>-mn/`** with a short `README.md` and `words/0001-1000.json`. Add `kanji/` only for languages
    written with kanji, `tools/` only when needed.
-3. **Write entries** in the shared word format, one per line. `example` is keyed by the language code
-   (`{"ko": "...", "mn": "..."}`). Dictionary forms only; one entry per word + pos; no Latin letters in
+3. **Write entries** in the shared word format, one per line. Two `examples`, each keyed by the language code
+   (`[{"ko": "...", "mn": "..."}, {...}]`). Dictionary forms only; one entry per word + pos; no Latin letters in
    Mongolian fields; write everything yourself; AI drafts stay `"status": "machine"`.
 4. **Run `node tools/assign-ids.js`** (gives new entries permanent ids; never write ids by hand), then **`node tools/validate.js`** until it prints `0 problems`. It finds new folders automatically.
 5. **Add a row** to the languages table in the main README and open a pull request. Keep the first one small.

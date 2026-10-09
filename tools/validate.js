@@ -52,6 +52,7 @@ const langs = fs.readdirSync(root).filter((d) => /^[a-z]{2,3}-mn$/.test(d) && fs
 for (const lang of langs) {
   const src = lang.split('-')[0];
   let count = 0;
+  let oneExample = 0; // words still waiting for their second example
 
   const wdir = path.join(root, lang, 'words');
   const seen = new Set();
@@ -72,10 +73,16 @@ for (const lang of langs) {
       if (seen.has(key)) warn('duplicate (same word and pos)');
       seen.add(key);
       checkCommon(e, warn);
-      const ex = e.example || {};
-      if (typeof ex[src] !== 'string' || !ex[src].trim()) warn(`example.${src} is missing`);
-      if (typeof ex.mn !== 'string' || !ex.mn.trim()) warn('example.mn is missing');
-      checkMongolian(e, [...(e.meanings_mn || []), e.note_mn, ex.mn], warn);
+      // Two examples per word; older entries still have one until the backfill is done.
+      const examples = Array.isArray(e.examples) ? e.examples : [];
+      if (!examples.length || examples.length > 2) warn('examples must be a list of 1–2 sentences');
+      else if (examples.length < 2) oneExample++;
+      for (const ex of examples) {
+        if (typeof ex[src] !== 'string' || !ex[src].trim()) warn(`example.${src} is missing`);
+        if (typeof ex.mn !== 'string' || !ex.mn.trim()) warn('example.mn is missing');
+      }
+      if (new Set(examples.map((ex) => ex[src])).size < examples.length) warn('the two examples are the same sentence');
+      checkMongolian(e, [...(e.meanings_mn || []), e.note_mn, ...examples.map((ex) => ex.mn)], warn);
       count++;
     }
   }
@@ -154,7 +161,7 @@ for (const lang of langs) {
     }
   }
 
-  console.log(`${lang}: ${count} entries`);
+  console.log(`${lang}: ${count} entries${oneExample ? ` (${oneExample} words have 1 example, aim for 2)` : ''}`);
 }
 
 for (const line of report.slice(0, 200)) console.log(line);

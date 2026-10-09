@@ -65,7 +65,8 @@ Pull request бүрт GitHub `tools/validate.js`-г автоматаар ажи�
 ```json
 { "id": 62, "word": "分かる", "reading": "わかる", "alt": ["わかる", "解る"], "pos": "verb",
   "meanings_mn": ["ойлгох, мэдэх"], "note_kind": "", "note_mn": "",
-  "example": { "ja": "分かった。", "mn": "Ойлголоо." }, "status": "machine" }
+  "examples": [{ "ja": "分かった。", "mn": "Ойлголоо." }, { "ja": "言いたいことは分かる。", "mn": "Юу хэлэх гээд байгааг чинь ойлгож байна." }],
+  "status": "machine" }
 ```
 
 | Талбар | Утга |
@@ -77,7 +78,7 @@ Pull request бүрт GitHub `tools/validate.js`-г автоматаар ажи�
 | `pos` | Үгсийн аймаг: `noun`, `verb`, `adjective`, `adverb`, `particle`, `expression` … (бүтэн жагсаалт: [`tools/validate.js`](tools/validate.js)) |
 | `meanings_mn` | Монгол утгууд, нэг утга = нэг мөр |
 | `note_kind`, `note_mn` | Тэмдэглэл: `origin` (гарал), `mnemonic` (цээжлэх арга, гарал **биш**), `compare` (монгол хэлтэй харьцуулалт), `usage` (хэрэглээ), эсвэл хоосон |
-| `example` | Жишээ өгүүлбэр: эх хэлний кодоор (`ja`, `ko` …) ба `mn` |
+| `examples` | Хоёр жишээ өгүүлбэр, тус бүр эх хэлний кодоор (`ja`, `ko` …) ба `mn`. Хуучин зарим бичлэгт одоогоор нэг л жишээ байгаа |
 | `status` | `machine` (AI ноорог, хянаагүй) → `reviewed` (монгол хэлтэй хүн хянасан) |
 
 ## Бие даасан байдлын дүрэм
@@ -100,7 +101,7 @@ Open dictionary data from other languages **into Mongolian** (Cyrillic). Each fo
 `<source>-mn/` with ISO 639-1 codes. The first is `ja-mn/` (Japanese → Mongolian): all 2,136 jōyō kanji and the
 4,204 most frequent subtitle words and set phrases, plus 907 proper nouns (countries, places, organisations, surnames). Every entry is currently an **unreviewed AI draft**.
 
-- Word entries share one format across languages (table above); `example` is keyed by the source language code.
+- Word entries share one format across languages (table above); each of the two `examples` is keyed by the source language code.
 - **Permanent ids**: every word has an `id` that never changes and is never reused, so other projects can link to
   `ja-mn/62`. `node tools/assign-ids.js` gives new entries the next number from `<lang>/ids.json`. Kanji are
   identified by the character itself (`ja-mn/休`).

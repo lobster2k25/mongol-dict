@@ -101,7 +101,7 @@ function yomitan(lang, words, names, kanji, tokenizer) {
   for (const e of words) {
     const gloss = [...e.meanings_mn];
     if (e.note_mn) gloss.push(`※ ${e.note_mn}`);
-    gloss.push(`Жишээ: ${e.example.ja} — ${e.example.mn}`);
+    for (const ex of e.examples) gloss.push(`Жишээ: ${ex.ja} — ${ex.mn}`);
     const tags = (POS_TAGS[e.pos] || [e.pos])[0];
     const status = STATUS_TAGS[e.status][0];
     const rules = verbRules(tokenizer, e);

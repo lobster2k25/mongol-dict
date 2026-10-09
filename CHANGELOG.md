@@ -3,6 +3,12 @@
 Хувилбарын дугаар: `0.x` — бичлэгүүд хянагдаж эхлэхээс өмнөх үе. Үгийн `id` хувилбар хооронд өөрчлөгдөхгүй.
 Version numbers: `0.x` while entries are unreviewed drafts. Word ids never change between versions.
 
+## Дараагийн хувилбар / Unreleased
+
+- **Формат өөрчлөгдсөн**: үгийн `example` → `examples` (1–2 өгүүлбэрийн жагсаалт). Бүх үгэнд хоёр дахь жишээ
+  нэмж байна. / **Format change**: word `example` is now `examples`, a list of 1–2 sentences; a second example
+  is being added to every word.
+
 ## 0.3.0 — 2026-10-08
 
 - **Хэллэг, мэндчилгээ** (`ja-mn/words/phrases-01.json`, 439): кино, цувралын хадмалд хамгийн их гардаг олон үгтэй
