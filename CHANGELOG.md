@@ -10,6 +10,8 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
   now have two examples.
 - **Хэллэг** 158 нэмэгдэж 597 боллоо (`phrases-01`); 17 бичлэгт өөр бичлэг нэмэгдсэн. / **Phrases**: 158 more (597).
   17 existing entries gained alternate spellings.
+- 71 бичлэгийн буруу, илүү утга, жишээг зассан (あらら, くそー, 墜落, 立ち上がる …). / 71 entries corrected: wrong or
+  padded meanings and awkward example translations.
 
 ## 0.3.0 — 2026-10-08
 
