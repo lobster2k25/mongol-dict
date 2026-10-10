@@ -10,6 +10,7 @@
 | Үг, үзсэн цувралаас (`watched-01`: Sins of Kujo S1E1) | 424 | 0 |
 | Хэллэг, мэндчилгээ (`phrases-01`: хадмалд хамгийн их гардаг) | 597 | 0 |
 | Нийлмэл үг (`compounds-01`: 誕生日, 行方不明, いい加減) | 345 | 0 |
+| Дуу, дүрс дуурайх үг (`onomatopoeia-01`: ドキドキ, ワクワク, キラキラ) | 333 | 0 |
 | Оноосон нэр: улс, газар, байгууллага, овог | 907 | 0 |
 
 Одоогийн үг, нэрс кино, цувралын хадмал дахь бүх үгийн **~89%**-ийг хамардаг (тоо, цэг таслалаас
@@ -116,7 +117,7 @@
 
 ## English
 
-- **Contents**: 2,136 jōyō kanji, 4,707 words (597 of them set phrases, `words/phrases-NN.json`; 345 compounds, `words/compounds-NN.json`), 907 proper nouns (`names/`: countries, places, organisations,
+- **Contents**: 2,136 jōyō kanji, 5,040 words (597 of them set phrases, `words/phrases-NN.json`; 345 compounds, `words/compounds-NN.json`; 333 onomatopoeia, `words/onomatopoeia-NN.json`), 907 proper nouns (`names/`: countries, places, organisations,
   surnames); together ~89% of all subtitle tokens (measured against every token except punctuation and numbers).
 - **Names** use their own format (`kind`, `mn` = the name in Mongolian, `desc_mn` = short description) and share the
   word id sequence. No one-character abbreviations in `alt` (米, 中, 日 are ordinary words). Given names and
