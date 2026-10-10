@@ -10,6 +10,8 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
   now have two examples.
 - **Хэллэг** 158 нэмэгдэж 597 боллоо (`phrases-01`); 17 бичлэгт өөр бичлэг нэмэгдсэн. / **Phrases**: 158 more (597).
   17 existing entries gained alternate spellings.
+- **Нийлмэл үг** (`compounds-01.json`, 345): 誕生日, 行方不明, 可能性, いい加減, 一人, 二度. Kuromoji хуваадаг тул
+  өмнө нь алгасагддаг байсан (`build-compounds.js`). / **Compound words** (345), which kuromoji splits into parts.
 - 71 бичлэгийн буруу, илүү утга, жишээг зассан (あらら, くそー, 墜落, 立ち上がる …). / 71 entries corrected: wrong or
   padded meanings and awkward example translations.
 
