@@ -1,12 +1,12 @@
 # ja-mn — Хийх ажил / To do
 
-Шинэчилсэн: 2026-10-06. Тусламж хэрэгтэй бол аль ч мөрийг сонгоод [issue нээгээрэй](../../../issues/new).
+Шинэчилсэн: 2026-10-11. Тусламж хэрэгтэй бол аль ч мөрийг сонгоод [issue нээгээрэй](../../../issues/new).
 
 ## Одоогийн байдал
 
 | | |
 |--|--|
-| Хадмалын бүх үгийн хамрах хүрээ | ~89% |
+| Хадмалын бүх үгийн хамрах хүрээ | ~91% |
 | JMdict-ийн «түгээмэл» 22,645 бичлэгийн хамрах хүрээ | 17.8% (4,041) |
 | Хянасан бичлэг | 0 — бүгд AI ноорог |
 
@@ -17,12 +17,12 @@
 - [ ] **Дуу дуурайх, дүр дуурайх үг** (擬音語・擬態語): 333 бичигдсэн (`words/onomatopoeia-01.json`). Анимед маш их.
       Дараагийнх: `node ja-mn/tools/next-words.js 200 onomatopoeia` (`build-compounds.js` хадмалаас тоолно)
 - [ ] **Нийлмэл үг** (複合語: 取り戻す, 誕生日, 一生懸命): kuromoji хэд хэдэн хэсэг болгон хуваадаг тул давтамжийн
-      жагсаалтад ордоггүй. 345 бичигдсэн (`words/compounds-01.json`). Дараагийнх: `node ja-mn/tools/next-words.js 200 compounds`
+      жагсаалтад ордоггүй. 832 бичигдсэн (`words/compounds-01.json`). Дараагийнх: `node ja-mn/tools/next-words.js 200 compounds`
 - [ ] **Нэр мэт харагддаг энгийн үг**: 米 (будаа), 巨人 (аварга) г.м. Kuromoji оноосон нэр гэж ангилдаг тул алгассан
 - [ ] **Тоо, тоолох нөхцөл**: 二人, 五つ, 冊, 皿, 枚 г.м. (~80)
 - [ ] **Дөрвөн ханзтай хэлц** (四字熟語): 一生懸命, 一石二鳥, 喜怒哀楽 (~50)
 - [ ] **Зүйр үг, хэлц**: 犬猿の仲, 後の祭り (~15)
-- [ ] **Давтамжийн жагсаалтаар үргэлжлүүлэх**: 4,000-аас цааш (`node ja-mn/tools/next-words.js`)
+- [ ] **Давтамжийн жагсаалтаар үргэлжлүүлэх**: 6,000-аас цааш (1–6000 дууссан) (`node ja-mn/tools/next-words.js`)
 - [ ] **Үзсэн цувралаас**: аниме, драмын үгс (өргөтгөлийн «дутуу үгс» жагсаалтаас)
 - [ ] Хүний нэр, баатрын нэр: оруулахгүй (олон янзаар уншигддаг). Өргөтгөл цуврал тус бүрээр сурч болох
 
@@ -46,7 +46,7 @@
 
 ## English
 
-Coverage: ~89% of all subtitle tokens, 17.8% of JMdict's 22,645 "common" entries; 0 entries reviewed.
+Coverage: ~91% of all subtitle tokens, 17.8% of JMdict's 22,645 "common" entries; 0 entries reviewed.
 
 **Content, in order:** set phrases and greetings (597 done in `phrases-01`; `build-phrases.js` counts 2-5 token
 phrases, next ones via `next-words.js 200 phrases`), onomatopoeia (~200), common words the tokenizer labels as proper nouns (米, 巨人), numbers and

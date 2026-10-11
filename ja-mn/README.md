@@ -7,13 +7,15 @@
 | Өдөр тутмын хэрэглээний ханз (常用漢字), бүгд | 2,136 / 2,136 | 0 |
 | Үг, хадмалын давтамжийн 1–3000 | 2,482 | 0 |
 | Үг, хадмалын давтамжийн 3001–4000 | 859 | 0 |
+| Үг, хадмалын давтамжийн 4001–5000 | 779 | 0 |
+| Үг, хадмалын давтамжийн 5001–6000 | 715 | 0 |
 | Үг, үзсэн цувралаас (`watched-01`: Sins of Kujo S1E1) | 424 | 0 |
 | Хэллэг, мэндчилгээ (`phrases-01`: хадмалд хамгийн их гардаг) | 597 | 0 |
-| Нийлмэл үг (`compounds-01`: 誕生日, 行方不明, いい加減) | 345 | 0 |
+| Нийлмэл үг (`compounds-01`: 誕生日, 行方不明, いい加減) | 832 | 0 |
 | Дуу, дүрс дуурайх үг (`onomatopoeia-01`: ドキドキ, ワクワク, キラキラ) | 333 | 0 |
 | Оноосон нэр: улс, газар, байгууллага, овог | 907 | 0 |
 
-Одоогийн үг, нэрс кино, цувралын хадмал дахь бүх үгийн **~89%**-ийг хамардаг (тоо, цэг таслалаас
+Одоогийн үг, нэрс кино, цувралын хадмал дахь бүх үгийн **~91%**-ийг хамардаг (тоо, цэг таслалаас
 бусад бүх үгтэй, хүний нэрийг оролцуулан харьцуулж тоолсон).
 
 Хийх ажлын жагсаалт: [TODO.md](TODO.md).
@@ -117,8 +119,8 @@
 
 ## English
 
-- **Contents**: 2,136 jōyō kanji, 5,040 words (597 of them set phrases, `words/phrases-NN.json`; 345 compounds, `words/compounds-NN.json`; 333 onomatopoeia, `words/onomatopoeia-NN.json`), 907 proper nouns (`names/`: countries, places, organisations,
-  surnames); together ~89% of all subtitle tokens (measured against every token except punctuation and numbers).
+- **Contents**: 2,136 jōyō kanji, 7,021 words (597 of them set phrases, `words/phrases-NN.json`; 832 compounds, `words/compounds-NN.json`; 333 onomatopoeia, `words/onomatopoeia-NN.json`), 907 proper nouns (`names/`: countries, places, organisations,
+  surnames); together ~91% of all subtitle tokens (measured against every token except punctuation and numbers).
 - **Names** use their own format (`kind`, `mn` = the name in Mongolian, `desc_mn` = short description) and share the
   word id sequence. No one-character abbreviations in `alt` (米, 中, 日 are ordinary words). Given names and
   character names are not included. Transcription: established Mongolian names first (Токио, Нью-Йорк), otherwise
