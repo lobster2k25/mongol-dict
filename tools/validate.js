@@ -154,7 +154,9 @@ for (const lang of langs) {
         if (!x.word || !x.word.includes(e.kanji)) warn(`example word must contain the kanji: ${x.word}`);
         if (!x.mn) warn(`example ${x.word} has no mn`);
       }
-      checkMongolian(e, [...(e.meanings_mn || []), e.note_mn, ...examples.map((x) => x.mn)], warn);
+      // origin_mn (optional): how the kanji was formed; note_mn is then a learning tip.
+      if ('origin_mn' in e && typeof e.origin_mn !== 'string') warn('origin_mn must be text ("" if none)');
+      checkMongolian(e, [...(e.meanings_mn || []), e.origin_mn, e.note_mn, ...examples.map((x) => x.mn)], warn);
       count++;
     }
   }

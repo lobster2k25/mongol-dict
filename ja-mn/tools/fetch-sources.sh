@@ -16,5 +16,7 @@ curl -sSL -o opensubtitles-ja.txt.gz https://object.pouta.csc.fi/OPUS-OpenSubtit
 # and parts; Kanjium (CC BY-SA 4.0) jōyō readings, radical, phonetic part and formation type. Pinned versions.
 curl -sSL -o kanjivg.xml.gz https://github.com/KanjiVG/kanjivg/releases/download/r20260714/kanjivg-20260714.xml.gz
 curl -sSL -o kanjium-kanjidict.txt https://raw.githubusercontent.com/mifunetoshiro/kanjium/9ebca4589565c696e7c39e089e2e928ad65f678c/data/source_files/kanjidict.txt
+# Look-alike kanji (Kanjium): shown to the agents writing "compare" notes, as a hint only.
+curl -sSL -o kanjium-lookalikes.txt https://raw.githubusercontent.com/mifunetoshiro/kanjium/9ebca4589565c696e7c39e089e2e928ad65f678c/data/source_files/lookalikes.txt
 gunzip -f kanjidic2.xml.gz kradfile.gz JMdict_e.gz opensubtitles-ja.txt.gz kanjivg.xml.gz
 ls -la

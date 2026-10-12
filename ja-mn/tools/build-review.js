@@ -29,7 +29,7 @@ for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort()
     if (!e.meanings_mn.length) warn('no meanings');
     for (const x of e.examples) if (!x.word.includes(e.kanji)) warn(`example ${x.word} lacks the kanji`);
     // Mongolian text must be Cyrillic: catch Latin look-alikes (x, o, e…) and stray accented letters.
-    const mn = [...e.meanings_mn, e.note_mn, ...e.examples.map((x) => x.mn)].join(' ');
+    const mn = [...e.meanings_mn, e.origin_mn, e.note_mn, ...e.examples.map((x) => x.mn)].join(' ');
     if (/[A-Za-zÀ-ɏ]/.test(mn)) warn(`Latin letter in Mongolian text: ${mn.match(/\S*[A-Za-zÀ-ɏ]\S*/)[0]}`);
   }
   total += entries.length;
@@ -38,7 +38,7 @@ for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort()
     const r = ref[e.kanji] || { on: [], kun: [], en: [] };
     const ex = e.examples.map((x) => `${x.word}（${x.reading}）${x.mn}`).join('<br>');
     const icon = { origin: '📜 ', mnemonic: '💡 ', compare: '🇲🇳 ', usage: '📝 ' }[e.note_kind] || '';
-    return `| ${i + 1} | **${e.kanji}** | ${r.on.slice(0, 3).join('、')} / ${r.kun.slice(0, 3).join('、')} | ${cell(r.en.slice(0, 3).join('; '))} | ${cell(e.meanings_mn.join('; '))} | ${(parts[e.kanji] || []).join(' ')} | ${cell(icon + e.note_mn)} | ${cell(ex)} | ${e.status === 'reviewed' ? '☑' : '☐'} |`;
+    return `| ${i + 1} | **${e.kanji}** | ${r.on.slice(0, 3).join('、')} / ${r.kun.slice(0, 3).join('、')} | ${cell(r.en.slice(0, 3).join('; '))} | ${cell(e.meanings_mn.join('; '))} | ${(parts[e.kanji] || []).join(' ')} | ${[e.origin_mn ? cell(`📜 ${e.origin_mn}`) : '', e.note_mn ? cell(icon + e.note_mn) : ''].filter(Boolean).join('<br>')} | ${cell(ex)} | ${e.status === 'reviewed' ? '☑' : '☐'} |`;
   });
   fs.writeFileSync(path.join(root, `review/${set}.md`), `# Review: ${set} (${entries.length} / ${(sets[set] || []).length})
 
