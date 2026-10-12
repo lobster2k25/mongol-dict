@@ -5,14 +5,25 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
 
 ## Дараагийн хувилбар / Unreleased
 
-- **Формат өөрчлөгдсөн**: үгийн `example` → `examples` (2 өгүүлбэрийн жагсаалт). Бүх 4,362 үг хоёр жишээтэй
-  боллоо. / **Format change**: word `example` is now `examples`, a list of 2 sentences; all 4,362 words
-  now have two examples.
+## 0.4.0 — 2026-10-13
+
+- **Ханзны тайлбар**: бүх 2,136 ханзанд шинэ `origin_mn` талбар — ханз хэрхэн бүтсэн (хэсгүүд, утга ба дуудлагын
+  хэсэг). Баттай биш бол «гэж үздэг» гэж бичсэн (776), мэдэхгүй бол хоосон (34). `note_mn` одоо зөвхөн суралцагчид
+  туслах зөвлөгөө: `usage` (1,118), `compare` (470), `mnemonic` (40); хуучин «origin» тэмдэглэлүүд `origin_mn`-д
+  шилжсэн, 271 хуучин тэмдэглэл засагдсан эсвэл хасагдсан (зохиосон гарал). / **Kanji explanations**: new field
+  `origin_mn` on all 2,136 kanji (how the kanji is built; hedged where uncertain); `note_mn` is now only a
+  learning tip. 271 old notes rewritten or dropped as folk etymology.
+- **`ja-mn/radicals.json`** (73): ханз биш хэсгүүдийн монгол нэр (艹 өвс, ⻌ зам, 宀 дээвэр). / Mongolian names
+  for radical shapes that are not kanji themselves.
+- **Үг 4001–6000** (`4001-5000.json` 779, `5001-6000.json` 715) ба **нийлмэл үг** нэмэгдэж 832 боллоо. Үг нийт
+  7,021, хадмалын үгийн ~91%. / **Words** ranks 4,001–6,000 (1,494) and compounds now 832; 7,021 words, ~91% of
+  subtitle tokens.
+- **Формат өөрчлөгдсөн**: үгийн `example` → `examples` (2 өгүүлбэрийн жагсаалт). Бүх үг хоёр жишээтэй боллоо. / **Format change**: word `example` is now `examples`, a list of 2 sentences; every word now has two examples.
 - **Хэллэг** 158 нэмэгдэж 597 боллоо (`phrases-01`); 17 бичлэгт өөр бичлэг нэмэгдсэн. / **Phrases**: 158 more (597).
   17 existing entries gained alternate spellings.
 - **Дуу, дүрс дуурайх үг** (`onomatopoeia-01.json`, 333): ドキドキ (зүрх түг түг), ワンワン (гав гав), キラキラ,
   ぐっすり, ボロボロ. / **Onomatopoeia** (333), with Mongolian imitative words where one exists.
-- **Нийлмэл үг** (`compounds-01.json`, 345): 誕生日, 行方不明, 可能性, いい加減, 一人, 二度. Kuromoji хуваадаг тул
+- **Нийлмэл үг** (`compounds-01.json`, эхний 345): 誕生日, 行方不明, 可能性, いい加減, 一人, 二度. Kuromoji хуваадаг тул
   өмнө нь алгасагддаг байсан (`build-compounds.js`). / **Compound words** (345), which kuromoji splits into parts.
 - 71 бичлэгийн буруу, илүү утга, жишээг зассан (あらら, くそー, 墜落, 立ち上がる …). / 71 entries corrected: wrong or
   padded meanings and awkward example translations.

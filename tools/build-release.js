@@ -110,7 +110,7 @@ function yomitan(lang, words, names, kanji, tokenizer) {
     for (const [expr, reading] of forms) terms.push([expr, reading, tags, rules, score, gloss, e.id, status]);
   }
   const kanjiRows = kanji.map((k) => [k.kanji, '', '', STATUS_TAGS[k.status][0],
-    [...k.meanings_mn, ...(k.note_mn ? [`※ ${k.note_mn}`] : []), ...k.examples.map((x) => `${x.word}（${x.reading}）— ${x.mn}`)], {}]);
+    [...k.meanings_mn, ...(k.origin_mn ? [`Бүтэц: ${k.origin_mn}`] : []), ...(k.note_mn ? [`※ ${k.note_mn}`] : []), ...k.examples.map((x) => `${x.word}（${x.reading}）— ${x.mn}`)], {}]);
   const tagBank = [
     ...Object.values(POS_TAGS).map(([name, notes]) => [name, 'partOfSpeech', 0, notes, 0]),
     ...[...new Map(Object.values(NAME_TAGS).map((t) => [t[0], t])).values()].map(([name, notes]) => [name, 'name', 0, notes, 0]),
