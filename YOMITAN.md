@@ -29,7 +29,7 @@
 
 ## 4. Хэрэглэх
 
-**Shift** товчийг дарсан чигтээ япон үгэн дээр хулганаа аваачна. Жижиг цонхонд:
+Япон үгэн дээр хулганаа аваачаад **Shift** дарна. Жижиг цонхонд:
 
 - үгийн монгол утга, үгсийн аймаг (үйл, нэр …), хоёр жишээ өгүүлбэр;
 - үйл үг хувилсан байсан ч (分かった, 食べている) толь бичгийн хэлбэрээр нь (分かる, 食べる) олно;
@@ -56,7 +56,7 @@ dictionaries** → **Check for updates** → гарч ирсэн **Update** то
   фуригана, үгэн дээр дарахад монгол утга, ханзны тайлбар.
 - **Language Reactor** өөрийн толь бичгээ ашигладаг бөгөөд гаднаас толь оруулах боломжгүй. Гэхдээ Language
   Reactor-ын хадмал хуудсан дээрх энгийн текст тул Yomitan түүн дээр ажиллана: Language Reactor-ыг асаагаад
-  хадмал дээрх үгэн дээр Shift дарж хулганаа аваачна.
+  хадмал дээрх үгэн дээр хулганаа аваачаад Shift дарна.
 
 ---
 
@@ -67,9 +67,9 @@ dictionaries** → **Check for updates** → гарч ирсэн **Update** то
 1. Install [Yomitan](https://yomitan.wiki/) (Chrome Web Store or Firefox add-ons).
 2. Download [`mongol-dict-ja-mn-yomitan.zip`](https://github.com/lobster2k25/mongol-dict/releases/latest/download/mongol-dict-ja-mn-yomitan.zip). Do not unzip it.
 3. Yomitan → Settings → Dictionaries → *Configure installed and enabled dictionaries* → **Import** → pick the zip.
-4. Hold **Shift** and hover over Japanese text. Click a kanji in the pop-up for its entry.
+4. Hover over Japanese text and press **Shift**. Click a kanji in the pop-up for its entry.
 5. Optional English backup: Settings → Language: Japanese → **Get recommended dictionaries...** → install Jitendex or JMdict, and keep mongol-dict at the top of the list.
 6. Updates: same window → **Check for updates**.
 
-Language Reactor cannot load outside dictionaries, but Yomitan works on its subtitles (hold Shift and hover).
+Language Reactor cannot load outside dictionaries, but Yomitan works on its subtitles (hover and press Shift).
 Entries are unreviewed AI drafts, tagged «ноорог». Data: CC BY-SA 4.0.
