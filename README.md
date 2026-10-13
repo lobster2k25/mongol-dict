@@ -22,7 +22,7 @@
 
 | Файл | Юунд |
 |------|------|
-| `mongol-dict-ja-mn-yomitan.zip` | [Yomitan](https://yomitan.wiki/) хөтчийн өргөтгөлд: вэб хуудсан дээрх япон үгэн дээр хулганаа аваачихад монгол утга гарна. Yomitan → Settings → Dictionaries → Import. Шинэ хувилбар гарвал Yomitan-ы «Check for updates» товчоор шинэчилнэ |
+| `mongol-dict-ja-mn-yomitan.zip` | [Yomitan](https://yomitan.wiki/) хөтчийн өргөтгөлд: вэб хуудсан дээрх япон үгэн дээр хулганаа аваачихад монгол утга гарна. Суулгах заавар: [YOMITAN.md](YOMITAN.md). Шинэ хувилбар гарвал Yomitan-ы «Check for updates» товчоор шинэчилнэ |
 | `mongol-dict-ja-mn.json` | Бүх үг, ханз нэг файлд; өөрийн апп, програмдаа ашиглах |
 
 Өөрчлөлтүүд: [CHANGELOG.md](CHANGELOG.md).
