@@ -113,7 +113,7 @@
 | `sh ja-mn/tools/fetch-sources.sh` | Лавлах файлуудыг `ja-mn/sources/`-д татна: EDRDG-ийн KANJIDIC2, KRADFILE, JMdict, OPUS OpenSubtitles-ийн япон хадмал (~100 МБ). Зөвхөн өөрийн компьютерт, repo-д орохгүй |
 | `npm install` | Kuromoji (япон өгүүлбэрийг үгэнд хуваагч) суулгана. Нэг удаа |
 | `node ja-mn/tools/build-freq.js` | ~3.2 сая мөр хадмалыг үгэнд хувааж, үг бүр хэдэн удаа гарсныг тоолно (~1 мин). Үр дүн: `sources/word-freq.json` (үгс), `sources/name-freq.json` (оноосон нэр), `sources/token-totals.json` (нийт тоо) |
-| `node ja-mn/tools/next-words.js [n]` | Толь бичигт хараахан ороогүй, хамгийн их гардаг дараагийн `n` үгийг жагсаана |
+| `node ja-mn/tools/next-words.js [n]` | Толь бичигт хараахан ороогүй, хамгийн их гардаг дараагийн `n` үгийг жагсаана. `tools/skip-words.tsv`-д байгаа үгсийг (хэлтэрхий, хүний нэр) алгасна |
 | `node ja-mn/tools/next-batch.js <set> [n]` | Тухайн ангийн (жишээ нь `grade-3`) бичигдээгүй ханзыг жагсаана |
 | `node ja-mn/tools/gemini-draft.js <жагсаалт> [гаралт]` | `next-words.js`-ийн гаргасан үгсэд Gemini API-гаар (үнэгүй түвшин, нэг хүсэлтэд 50 үг) ноорог бичиж, шалгаад `sources/draft.json`-д хадгална. Зогсоод дахин ажиллуулж болно. Түлхүүрийг `GEMINI_API_KEY`-ээс эсвэл repo-гийн гадна байгаа `gemini_key.txt`-ээс уншина; түлхүүрийг repo-д хэзээ ч бүү оруул |
 | `node ja-mn/tools/add-words.js <файл> [нэр]` | Бичсэн ноорог багцыг `words/<нэр>.json`-д нэмж, шинэ бичлэгт дугаар өгнө |

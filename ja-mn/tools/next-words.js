@@ -12,6 +12,10 @@ const SKIP = new Set(['ン', 'う', 'こ', 'え', 'く', 'ら', 'お', 'ご', '�
   'ジャック', 'マイク', 'ロック', 'サラ', 'レッド', 'マン', 'ろ', 'り', 'ガン',
   'レ', 'ジャー', 'イカ', '山里', 'ジム', 'マーク']);
 
+// skip-words.tsv: more words judged not worth an entry (fragments, given names), "word<TAB>reason" per line.
+const skipFile = path.join(__dirname, 'skip-words.tsv');
+if (fs.existsSync(skipFile)) fs.readFileSync(skipFile, 'utf8').split('\n').forEach((l) => l.split('\t')[0] && SKIP.add(l.split('\t')[0]));
+
 const [count = 100, mode] = process.argv.slice(2);
 const source = { phrases: 'phrase', compounds: 'compound', onomatopoeia: 'compound' }[mode] || 'word';
 const kind = { compounds: 'compound', onomatopoeia: 'onomatopoeia' }[mode];
