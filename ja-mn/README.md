@@ -114,6 +114,7 @@
 | `node ja-mn/tools/build-freq.js` | ~3.2 сая мөр хадмалыг үгэнд хувааж, үг бүр хэдэн удаа гарсныг тоолно (~1 мин). Үр дүн: `sources/word-freq.json` (үгс), `sources/name-freq.json` (оноосон нэр), `sources/token-totals.json` (нийт тоо) |
 | `node ja-mn/tools/next-words.js [n]` | Толь бичигт хараахан ороогүй, хамгийн их гардаг дараагийн `n` үгийг жагсаана |
 | `node ja-mn/tools/next-batch.js <set> [n]` | Тухайн ангийн (жишээ нь `grade-3`) бичигдээгүй ханзыг жагсаана |
+| `node ja-mn/tools/gemini-draft.js <жагсаалт> [гаралт]` | `next-words.js`-ийн гаргасан үгсэд Gemini API-гаар (үнэгүй түвшин, нэг хүсэлтэд 50 үг) ноорог бичиж, шалгаад `sources/draft.json`-д хадгална. Зогсоод дахин ажиллуулж болно. Түлхүүрийг `GEMINI_API_KEY`-ээс эсвэл repo-гийн гадна байгаа `gemini_key.txt`-ээс уншина; түлхүүрийг repo-д хэзээ ч бүү оруул |
 | `node ja-mn/tools/add-words.js <файл> [нэр]` | Бичсэн ноорог багцыг `words/<нэр>.json`-д нэмж, шинэ бичлэгт дугаар өгнө |
 | `node ja-mn/tools/build-review.js` | Япон хэлний нэмэлт шалгалт (ханз зөв ангид байгаа эсэх, жишээнд үг орсон эсэх, унших нь хирагана эсэх), `ja-mn/review/`-д хянах хүснэгт бүтээнэ. Татсан файл шаардлагатай |
 
@@ -134,6 +135,7 @@
 - **To do**: [TODO.md](TODO.md).
 - **Tools** (run from the repo root): `fetch-sources.sh` downloads reference files (never committed);
   `build-freq.js` counts words, proper nouns and total tokens in ~3.2M subtitle lines; `next-words.js`,
-  `next-batch.js` list what to write next; `add-words.js` appends a batch and assigns ids; `build-review.js` runs
+  `next-batch.js` list what to write next; `gemini-draft.js` drafts entries for that list with the Gemini API (free tier, 50 words per request; key from
+  `GEMINI_API_KEY` or a `gemini_key.txt` outside the repo, never committed) into `sources/draft.json`; `add-words.js` appends a batch and assigns ids; `build-review.js` runs
   Japanese-specific checks and builds review sheets. The EDRDG files are a reference only; nothing from them is
   stored in our entries.
