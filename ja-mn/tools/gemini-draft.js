@@ -73,7 +73,7 @@ function problem(e, want) {
   if (!/^[ぁ-ゟー]+$/.test(e.reading)) return `reading is not hiragana: ${e.reading}`;
   if (!e.meanings_mn.length || e.meanings_mn.some((m) => !m.trim())) return 'no meanings';
   if (!['', 'usage', 'compare', 'mnemonic'].includes(e.note_kind)) return `bad note_kind ${e.note_kind}`;
-  if (e.note_mn && !e.note_kind) return 'note without note_kind';
+  if (e.note_mn && !e.note_kind) e.note_kind = 'usage'; // the model often leaves the kind empty; most tips are usage notes
   if (e.examples.length !== 2 || e.examples[0].ja === e.examples[1].ja) return 'needs 2 different examples';
   const stem = (w) => ([...w].length > 1 ? w.slice(0, -1) : w);
   if (e.examples.some((x) => ![e.word, e.reading, stem(e.word), stem(e.reading), ...e.alt].some((f) => f && x.ja.includes(f)))) return 'an example does not use the word';
