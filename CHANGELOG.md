@@ -15,6 +15,10 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
   бичсэн. / **Next 2,000 words** by frequency: 1,773 new entries, 82 folded into existing entries as other spellings
   (`alt`), 145 skipped as fragments or names; 10,692 words. All drafted by Claude.
 
+- **Дараагийн 1,000 үг** давтамжаар (`10001-11000.json`): Gemini API-гаар бичсэн 924 шинэ бичлэг, 37 үгийг
+  байгаа үгийн өөр бичлэг гэж `alt`-д нэмсэн. Үг нийт 11,616. / **Next 1,000 words** by frequency: 924 new entries
+  drafted with the Gemini API, 37 folded into existing entries as other spellings (`alt`); 11,616 words.
+
 ## 0.4.0 — 2026-10-13
 
 - **Ханзны тайлбар**: бүх 2,136 ханзанд шинэ `origin_mn` талбар — ханз хэрхэн бүтсэн (хэсгүүд, утга ба дуудлагын
