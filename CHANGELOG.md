@@ -5,6 +5,8 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
 
 ## Дараагийн хувилбар / Unreleased
 
+## 0.5.0 — 2026-10-15
+
 - **Дараагийн 2,000 үг** давтамжаар (`6001-7000.json` 941, `7001-8000.json` 957): 1,898 бичлэг, 95 үгийг хэлбэрийн
   хэлтэрхий эсвэл хүний нэр гэж алгассан. Үг нийт 8,919. 678-ыг Gemini API (`gemini-draft.js`), үлдсэнийг Claude
   бичсэн. / **Next 2,000 words** by frequency: 1,898 entries (95 skipped as tokenizer fragments or names); 8,919
