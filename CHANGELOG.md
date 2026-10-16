@@ -5,6 +5,12 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
 
 ## Дараагийн хувилбар / Unreleased
 
+## 0.5.1 — 2026-10-16
+
+- **Дараагийн 1,000 үг** давтамжаар (`12001-13000.json`): Gemini API-гаар бичсэн 927 шинэ бичлэг, 37 үгийг
+  байгаа үгийн өөр бичлэг гэж `alt`-д нэмсэн. Үг нийт 13,439. / **Next 1,000 words** by frequency: 927 new entries
+  drafted with the Gemini API, 37 folded into existing entries as other spellings (`alt`); 13,439 words.
+
 ## 0.5.0 — 2026-10-15
 
 - **Дараагийн 2,000 үг** давтамжаар (`6001-7000.json` 941, `7001-8000.json` 957): 1,898 бичлэг, 95 үгийг хэлбэрийн
