@@ -14,6 +14,7 @@
 | Үг, давтамжаар дараагийн 1,000 (`10001-11000`, Gemini) | 924 | 0 |
 | Үг, давтамжаар дараагийн 1,000 (`11001-12000`) | 896 | 0 |
 | Үг, давтамжаар дараагийн 1,000 (`12001-13000`, Gemini) | 927 | 0 |
+| Үг, давтамжаар дараагийн 1,000 (`13001-14000`) | 872 | 0 |
 | Үг, үзсэн цувралаас (`watched-01`: Sins of Kujo S1E1) | 424 | 0 |
 | Хэллэг, мэндчилгээ (`phrases-01`: хадмалд хамгийн их гардаг) | 597 | 0 |
 | Нийлмэл үг (`compounds-01`: 誕生日, 行方不明, いい加減) | 832 | 0 |
@@ -132,7 +133,7 @@
 
 ## English
 
-- **Contents**: 2,136 jōyō kanji, 13,439 words (1,898 of them the next 2,000 by frequency, `words/6001-7000.json` and `7001-8000.json`, 1,773 the 2,000 after that, `8001-9000.json` and `9001-10000.json`, 924 in `10001-11000.json` 896 in `11001-12000.json` and 927 in `12001-13000.json`; 597 set phrases, `words/phrases-NN.json`; 832 compounds, `words/compounds-NN.json`; 333 onomatopoeia, `words/onomatopoeia-NN.json`), 907 proper nouns (`names/`: countries, places, organisations,
+- **Contents**: 2,136 jōyō kanji, 14,311 words (1,898 of them the next 2,000 by frequency, `words/6001-7000.json` and `7001-8000.json`, 1,773 the 2,000 after that, `8001-9000.json` and `9001-10000.json`, 924 in `10001-11000.json` 896 in `11001-12000.json` 927 in `12001-13000.json` and 872 in `13001-14000.json`; 597 set phrases, `words/phrases-NN.json`; 832 compounds, `words/compounds-NN.json`; 333 onomatopoeia, `words/onomatopoeia-NN.json`), 907 proper nouns (`names/`: countries, places, organisations,
   surnames); together ~91% of all subtitle tokens (measured against every token except punctuation and numbers).
 - **Names** use their own format (`kind`, `mn` = the name in Mongolian, `desc_mn` = short description) and share the
   word id sequence. No one-character abbreviations in `alt` (米, 中, 日 are ordinary words). Given names and
