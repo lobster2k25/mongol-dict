@@ -88,9 +88,19 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function request(batch) {
   const body = { contents: [{ parts: [{ text: prompt(batch) }] }], generationConfig: { responseMimeType: 'application/json', responseSchema: schema } };
   for (let attempt = 1; ; attempt++) {
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
-      method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key }, body: JSON.stringify(body),
-    });
+    let res;
+    try {
+      res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key }, body: JSON.stringify(body),
+      });
+    } catch (err) {
+      // Network trouble ("fetch failed"): say why, and try again a few times before giving up.
+      const why = err.cause?.code || err.cause?.message || err.message;
+      if (attempt >= 5) throw new Error(`network: ${why}`);
+      console.log(`  network error (${why}), trying again in ${30 * attempt} s`);
+      await sleep(30000 * attempt);
+      continue;
+    }
     const data = await res.json().catch(() => ({}));
     if (res.ok) {
       const parts = data.candidates?.[0]?.content?.parts || [];
