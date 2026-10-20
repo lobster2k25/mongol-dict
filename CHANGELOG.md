@@ -5,6 +5,12 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
 
 ## Дараагийн хувилбар / Unreleased
 
+## 0.5.7 — 2026-10-21
+
+- **371 үг** (`16001-17000.json`-д нэмэгдсэн, Gemini API): 371 шинэ бичлэг, 21 үгийг байгаа үгийн өөр бичлэг гэж
+  `alt`-д нэмсэн. Үг нийт 17,466. / **371 words** drafted with the Gemini API (added to `16001-17000.json`), 21 folded
+  into existing entries as other spellings (`alt`); 17,466 words.
+
 ## 0.5.6 — 2026-10-21
 
 - **1,000 үг** давтамжаар (`17001-18000.json`): 853 шинэ бичлэг, 86 үгийг байгаа үгийн өөр бичлэг гэж `alt`-д
