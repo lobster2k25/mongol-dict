@@ -1,6 +1,6 @@
 # mongol-dict — Нээлттэй монгол толь бичиг
 
-**📖 20,037 япон үг · 2,136 ханз · 907 оноосон нэр** — v0.5.9 ([татах](../../releases/latest)) · 20,037 Japanese words, 2,136 kanji
+**📖 <!-- stats:words -->20,037<!-- /stats --> япон үг · <!-- stats:kanji -->2,136<!-- /stats --> ханз · <!-- stats:names -->907<!-- /stats --> оноосон нэр** — v<!-- stats:version -->0.5.9<!-- /stats --> ([татах](../../releases/latest)) · <!-- stats:words -->20,037<!-- /stats --> Japanese words, <!-- stats:kanji -->2,136<!-- /stats --> kanji
 
 Гадаад хэлнээс монгол руу орчуулсан нээлттэй, үнэгүй толь бичгийн өгөгдөл. Хэн ч ашиглаж, засаж, нэмж болно.
 Эхний хэл нь япон; бусад хэлийг ижил бүтцээр нэмнэ ([NEW-LANGUAGE.md](NEW-LANGUAGE.md)).
@@ -15,7 +15,7 @@
 
 | Хавтас | Орчуулга | Агуулга | Хянасан |
 |--------|----------|---------|---------|
-| [`ja-mn/`](ja-mn/) | Япон → Монгол | Өдөр тутмын хэрэглээний 2,136 ханз (常用漢字), кино, цувралын хадмалд хамгийн их гардаг 20,037 үг, хэллэг, 907 оноосон нэр (улс, газар, байгууллага, овог) | 0 |
+| [`ja-mn/`](ja-mn/) | Япон → Монгол | Өдөр тутмын хэрэглээний <!-- stats:kanji -->2,136<!-- /stats --> ханз (常用漢字), кино, цувралын хадмалд хамгийн их гардаг <!-- stats:words -->20,037<!-- /stats --> үг, хэллэг, <!-- stats:names -->907<!-- /stats --> оноосон нэр (улс, газар, байгууллага, овог) | <!-- stats:reviewed -->0<!-- /stats --> |
 | `ko-mn/`, `zh-mn/`, `en-mn/` … | Солонгос, хятад, англи … → Монгол | Хараахан эхлээгүй. [Эхлүүлэх үү?](NEW-LANGUAGE.md) | |
 
 ## Татах
@@ -101,8 +101,8 @@ Pull request бүрт GitHub `tools/validate.js`-г автоматаар ажи�
 ## English
 
 Open dictionary data from other languages **into Mongolian** (Cyrillic). Each folder is one direction,
-`<source>-mn/` with ISO 639-1 codes. The first is `ja-mn/` (Japanese → Mongolian): all 2,136 jōyō kanji and the
-20,037 most frequent subtitle words and set phrases, plus 907 proper nouns (countries, places, organisations, surnames). Every entry is currently an **unreviewed AI draft**.
+`<source>-mn/` with ISO 639-1 codes. The first is `ja-mn/` (Japanese → Mongolian): all <!-- stats:kanji -->2,136<!-- /stats --> jōyō kanji and the
+<!-- stats:words -->20,037<!-- /stats --> most frequent subtitle words and set phrases, plus <!-- stats:names -->907<!-- /stats --> proper nouns (countries, places, organisations, surnames). Every entry is currently an **unreviewed AI draft**.
 
 - Word entries share one format across languages (table above); each of the two `examples` is keyed by the source language code.
 - **Permanent ids**: every word has an `id` that never changes and is never reused, so other projects can link to

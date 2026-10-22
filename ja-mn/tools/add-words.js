@@ -1,5 +1,5 @@
 // Appends a batch of drafted word entries to a ja-mn/words file, keeping one entry per line,
-// then gives the new entries permanent ids (tools/assign-ids.js).
+// then gives the new entries permanent ids (tools/assign-ids.js) and updates the counts in README.md.
 // Usage: node ja-mn/tools/add-words.js <batch.json> [0001-1000]
 const fs = require('fs');
 const path = require('path');
@@ -14,3 +14,5 @@ fs.mkdirSync(path.dirname(file), { recursive: true });
 writeEntries(file, all);
 const given = assign('ja-mn');
 console.log(`${name}: ${have.length} → ${all.length} entries, ${given} new ids`);
+const counts = require('../../tools/readme-stats').update();
+console.log(`README counts: ${counts.words} words, ${counts.kanji} kanji, ${counts.names} names`);
