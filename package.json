@@ -1,6 +1,6 @@
 {
   "name": "mongol-dict",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "private": true,
   "description": "Open dictionary data into Mongolian, starting with Japanese",
   "license": "SEE LICENSE IN README.md",
