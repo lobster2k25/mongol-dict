@@ -20,6 +20,16 @@ Kindle-ийн утасны апп болон компьютерийн апп ө�
 
 Ихэнх бичлэг хиймэл оюуны ноорог бөгөөд хүн хянаагүй. Алдаа олвол [Issues](https://github.com/lobster2k25/mongol-dict/issues) хэсэгт бичээрэй.
 
+## Компьютерийн хөтөч дээр
+
+Энэ толь бичгийг ашигладаг үнэгүй хөтчийн өргөтгөлүүд:
+
+- **Uudam – Netflix & YouTube**: Netflix, YouTube дээр япон хадмалыг фуриганатай харуулна; үгэн дээр хулганаа аваачихад
+  видео түр зогсож монгол утга гарна. [Chrome](https://chromewebstore.google.com/detail/igghdcplopanlnjgpehkjdeehhfjpjlp) ·
+  [Firefox](https://addons.mozilla.org/firefox/addon/uudam-netflix-subtitles/)
+- **Uudam Hover**: дурын вэб хуудсан дээрх япон үгийг хулганаар заахад монгол утгыг нь харуулна.
+  [Firefox](https://addons.mozilla.org/firefox/addon/uudam-hover-japanese-lookup/)
+
 ---
 
 ## Kindle dictionary (Japanese → Mongolian), in English
@@ -38,6 +48,11 @@ and whether long-pressing 食べた shows 食べる.
 
 Dictionaries sent with "Send to Kindle" are usually not recognised as dictionaries; copy by USB. The Kindle phone
 and PC apps can't add your own dictionaries.
+
+Free browser add-ons using the same dictionary: **Uudam – Netflix & YouTube** (Japanese subtitles with furigana and
+Mongolian meanings; [Chrome](https://chromewebstore.google.com/detail/igghdcplopanlnjgpehkjdeehhfjpjlp),
+[Firefox](https://addons.mozilla.org/firefox/addon/uudam-netflix-subtitles/)) and **Uudam Hover** (hover any Japanese
+word on a web page; [Firefox](https://addons.mozilla.org/firefox/addon/uudam-hover-japanese-lookup/)).
 
 ### Building it
 
