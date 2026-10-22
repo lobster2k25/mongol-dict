@@ -28,6 +28,11 @@
 | `mongol-dict-ja-mn.json` | Бүх үг, ханз нэг файлд; өөрийн апп, програмдаа ашиглах |
 | `mongol-dict-ja-mn-kindle.mobi` | **Туршилтын.** Kindle төхөөрөмжид: япон ном уншиж байхдаа үгэн дээр удаан дарахад монгол утга гарна. Заавар: [KINDLE.md](KINDLE.md). Kindle-тэй бол туршаад Issues эсвэл Facebook-т хэлээрэй |
 
+Энэ толь бичгийг ашигладаг үнэгүй хөтчийн өргөтгөлүүд:
+
+- **Uudam – Netflix & YouTube**: япон хадмалыг фуриганатай харуулж, үгэн дээр хулганаа аваачихад видео зогсоод монгол утга гарна. [Chrome](https://chromewebstore.google.com/detail/igghdcplopanlnjgpehkjdeehhfjpjlp) · [Firefox](https://addons.mozilla.org/firefox/addon/uudam-netflix-subtitles/)
+- **Uudam Hover**: дурын вэб хуудсан дээрх япон үгэн дээр хулганаа аваачихад монгол утга, ханзны тайлбар гарна. [Firefox](https://addons.mozilla.org/firefox/addon/uudam-hover-japanese-lookup/)
+
 Өөрчлөлтүүд: [CHANGELOG.md](CHANGELOG.md).
 
 ## Бүтэц
@@ -115,6 +120,7 @@ Open dictionary data from other languages **into Mongolian** (Cyrillic). Each fo
   language's helpers (word frequency, next batch, review sheets).
 - **Downloads** ([latest release](../../releases/latest)): a Yomitan dictionary (`mongol-dict-ja-mn-yomitan.zip`, updatable
   via Yomitan's "Check for updates") and all entries in one JSON file. A tag `vX.Y.Z` with a matching CHANGELOG section publishes a release.
+- **Browser add-ons** using this dictionary: Uudam – Netflix & YouTube (Japanese subtitles with furigana, hover a word to pause and see the Mongolian meaning; [Chrome](https://chromewebstore.google.com/detail/igghdcplopanlnjgpehkjdeehhfjpjlp), [Firefox](https://addons.mozilla.org/firefox/addon/uudam-netflix-subtitles/)) and Uudam Hover (Mongolian meanings for Japanese words on any web page; [Firefox](https://addons.mozilla.org/firefox/addon/uudam-hover-japanese-lookup/)).
 - Adding a language: [NEW-LANGUAGE.md](NEW-LANGUAGE.md). Contributing: [CONTRIBUTING.md](CONTRIBUTING.md).
 - Mongolian content is written independently, never copied from other dictionaries or translated from JMdict.
 - Data: **CC BY-SA 4.0** ([LICENSE](LICENSE)). Code: **MIT** ([LICENSE-CODE](LICENSE-CODE)).
