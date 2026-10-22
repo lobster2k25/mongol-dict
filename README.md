@@ -26,6 +26,7 @@
 |------|------|
 | `mongol-dict-ja-mn-yomitan.zip` | [Yomitan](https://yomitan.wiki/) хөтчийн өргөтгөлд: вэб хуудсан дээрх япон үгэн дээр хулганаа аваачихад монгол утга гарна. Yomitan → Settings → Dictionaries → Import. Шинэ хувилбар гарвал Yomitan-ы «Check for updates» товчоор шинэчилнэ |
 | `mongol-dict-ja-mn.json` | Бүх үг, ханз нэг файлд; өөрийн апп, програмдаа ашиглах |
+| `mongol-dict-ja-mn-kindle.mobi` | **Туршилтын.** Kindle төхөөрөмжид: япон ном уншиж байхдаа үгэн дээр удаан дарахад монгол утга гарна. Заавар: [KINDLE.md](KINDLE.md). Kindle-тэй бол туршаад Issues эсвэл Facebook-т хэлээрэй |
 
 Өөрчлөлтүүд: [CHANGELOG.md](CHANGELOG.md).
 
