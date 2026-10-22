@@ -5,6 +5,13 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
 
 ## Дараагийн хувилбар / Unreleased
 
+## 0.5.9 — 2026-10-22
+
+- **2,000 үг** давтамжаар (`18001-19000.json`, `19001-20000.json`): 1,731 шинэ бичлэг, 189 үгийг байгаа үгийн өөр бичлэг гэж
+  `alt`-д нэмсэн, 123-ыг хэлтэрхий эсвэл нэр гэж алгассан. Үг нийт 20,037. Claude бичсэн. / **2,000 words** by frequency:
+  1,731 new entries, 189 folded into existing entries as other spellings (`alt`), 123 skipped as fragments or names;
+  20,037 words. Drafted by Claude.
+
 ## 0.5.8 — 2026-10-22
 
 - **1,000 үг** давтамжаар (`20001-21000.json`): 840 шинэ бичлэг, 97 үгийг байгаа үгийн өөр бичлэг гэж
