@@ -5,6 +5,12 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
 
 ## Дараагийн хувилбар / Unreleased
 
+## 0.5.10 — 2026-10-24
+
+- **1,115 үг** давтамжаар (`21001-22000.json` 735, `22001-23000.json` 380), Gemini API ноорог: 1,150 үгээс 35-ыг
+  шалгалтад тэнцээгүй тул дараагийн удаа дахин оролдоно. Үг нийт 21,152. / **1,115 words** by frequency, drafted with the
+  Gemini API (35 of 1,150 failed the checks and will be tried again); 21,152 words.
+
 ## 0.5.9 — 2026-10-22
 
 - **2,000 үг** давтамжаар (`18001-19000.json`, `19001-20000.json`): 1,731 шинэ бичлэг, 189 үгийг байгаа үгийн өөр бичлэг гэж
