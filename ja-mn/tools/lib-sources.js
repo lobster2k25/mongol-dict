@@ -34,6 +34,7 @@ function kradfile() {
 }
 
 // Jōyō kanji grouped into data files: grade-1..6 (elementary), secondary-1..6 (200 each by frequency).
+// Kanji beyond jōyō that our words use go in extra-1, extra-2… (200 each); build-review.js accepts any non-jōyō kanji there.
 function fileSets(ref) {
   const by = (g) => Object.keys(ref).filter((k) => ref[k].grade === g).sort((a, b) => ref[a].freq - ref[b].freq);
   const sets = {};

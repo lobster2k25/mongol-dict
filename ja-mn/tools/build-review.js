@@ -7,6 +7,7 @@ const { root, kanjidic, kradfile, fileSets } = require('./lib-sources');
 const ref = kanjidic();
 const parts = kradfile();
 const sets = fileSets(ref);
+const joyo = new Set(Object.values(sets).flat());
 const KINDS = ['', 'origin', 'mnemonic', 'compare', 'usage'];
 const cell = (s) => String(s).replace(/\|/g, '\\|');
 
@@ -23,7 +24,8 @@ for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort()
     const warn = (msg) => { problems++; console.log(`${file} ${e.kanji}: ${msg}`); };
     if (seen.has(e.kanji)) warn('duplicate');
     seen.add(e.kanji);
-    if (!sets[set] || !sets[set].includes(e.kanji)) warn(`not in set ${set}`);
+    // extra-N: kanji beyond jōyō that our words use, 200 per file, any order.
+    if (/^extra-\d+$/.test(set) ? joyo.has(e.kanji) : !sets[set] || !sets[set].includes(e.kanji)) warn(`not in set ${set}`);
     if (!KINDS.includes(e.note_kind)) warn(`bad note_kind ${e.note_kind}`);
     if (e.note_mn && !e.note_kind) warn('note without note_kind');
     if (!e.meanings_mn.length) warn('no meanings');

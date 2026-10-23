@@ -5,6 +5,16 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
 
 ## Дараагийн хувилбар / Unreleased
 
+## 0.6.0 — 2026-10-24
+
+- **449 шинэ ханз** (`kanji/extra-1.json` … `extra-3.json`): 常用漢字-аас гадуурх боловч манай үгэнд гардаг ханз (嘘, 噂, 濡,
+  叩, 噛…), утга, бүтэц, 2 жишээ үгтэй. Ханз нийт 2,585. / **449 new kanji** beyond jōyō that our words use, with meanings,
+  formation and 2 example words; 2,585 kanji.
+- **819 үг** давтамжаар (`21001-22000.json` 15, `22001-23000.json` 456, `23001-24000.json` 348): 900 бичлэгээс 81-ийг
+  байгаа үгийн өөр бичлэг гэж `alt`-д нэмсэн, 100 үгийг хэлтэрхий, нэр эсвэл хувилсан хэлбэр гэж алгассан. Үг нийт 21,971.
+  Claude бичсэн. / **819 words** by frequency; 81 folded into existing entries as other spellings, 100 skipped; 21,971 words.
+  Drafted by Claude.
+
 ## 0.5.10 — 2026-10-24
 
 - **1,115 үг** давтамжаар (`21001-22000.json` 735, `22001-23000.json` 380), Gemini API ноорог: 1,150 үгээс 35-ыг
