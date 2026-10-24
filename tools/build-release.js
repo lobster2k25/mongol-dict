@@ -147,7 +147,8 @@ async function main() {
     const words = readDir(path.join(root, lang, 'words')).sort((a, b) => a.id - b.id);
     const kanji = readDir(path.join(root, lang, 'kanji'));
     const names = readDir(path.join(root, lang, 'names')).sort((a, b) => a.id - b.id);
-    const all = { name: 'mongol-dict', language: lang, version, license: 'CC BY-SA 4.0', url: repo, kanji, words, names };
+    const grammar = readDir(path.join(root, lang, 'grammar')).sort((a, b) => a.id - b.id);
+    const all = { name: 'mongol-dict', language: lang, version, license: 'CC BY-SA 4.0', url: repo, kanji, words, names, grammar };
     fs.writeFileSync(path.join(dist, `mongol-dict-${lang}.json`), JSON.stringify(all));
     let note = '';
     if (lang === 'ja-mn') {
@@ -156,7 +157,7 @@ async function main() {
       const tokenizer = await new Promise((ok, fail) => kuromoji.builder({ dicPath }).build((err, t) => (err ? fail(err) : ok(t))));
       note = `, Yomitan: ${yomitan(lang, words, names, kanji, tokenizer)} term rows`;
     }
-    console.log(`${lang} ${version}: ${words.length} words, ${names.length} names, ${kanji.length} kanji${note}`);
+    console.log(`${lang} ${version}: ${words.length} words, ${names.length} names, ${kanji.length} kanji, ${grammar.length} grammar${note}`);
   }
 }
 main();

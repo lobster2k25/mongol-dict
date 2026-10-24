@@ -1,4 +1,4 @@
-// Gives every word and name entry without an "id" the next free number (words and names share one
+// Gives every word, name and grammar entry without an "id" the next free number (they share one
 // sequence), then saves <lang>/ids.json.
 // Ids are permanent: never changed, never reused (ids.json only counts up, even after a deletion).
 // Usage: node tools/assign-ids.js   (all <code>-mn/ folders)
@@ -15,7 +15,7 @@ function writeEntries(file, entries) {
 }
 
 function assign(lang) {
-  const dirs = ['words', 'names'].map((d) => path.join(root, lang, d)).filter((d) => fs.existsSync(d));
+  const dirs = ['words', 'names', 'grammar'].map((d) => path.join(root, lang, d)).filter((d) => fs.existsSync(d));
   if (!dirs.length) return 0;
   const idsFile = path.join(root, lang, 'ids.json');
   const ids = fs.existsSync(idsFile) ? JSON.parse(fs.readFileSync(idsFile, 'utf8')) : { next_word_id: 1 };

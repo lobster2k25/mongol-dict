@@ -114,6 +114,42 @@ for (const lang of langs) {
     }
   }
 
+  // Grammar patterns (〜てしまう): their own format, ids shared with words.
+  // forms = the pattern as written without 〜; match = regex sources that find it in raw subtitle text.
+  const gdir = path.join(root, lang, 'grammar');
+  const gseen = new Set();
+  for (const file of fs.existsSync(gdir) ? fs.readdirSync(gdir).filter((f) => f.endsWith('.json')).sort() : []) {
+    const where = `${lang}/grammar/${file}`;
+    const entries = readEntries(path.join(gdir, file), (msg) => { problems++; report.push(`${where}: ${msg}`); });
+    for (const e of entries) {
+      const warn = (msg) => { problems++; report.push(`${where} ${e.pattern}: ${msg}`); };
+      if (typeof e.pattern !== 'string' || !e.pattern.trim()) { warn('pattern is missing'); continue; }
+      if (!Number.isInteger(e.id) || e.id < 1) warn('id must be a positive whole number (run node tools/assign-ids.js)');
+      else if (ids.has(e.id)) warn(`id ${e.id} is also used by ${ids.get(e.id)}`);
+      else ids.set(e.id, e.pattern);
+      const key = `${e.pattern}|${(e.meanings_mn || [])[0]}`;
+      if (gseen.has(key)) warn('duplicate (same pattern and first meaning)');
+      gseen.add(key);
+      if (!Array.isArray(e.forms) || !e.forms.length) warn('forms must be a non-empty list');
+      if (!/^N[1-5]$/.test(e.level || '')) warn('level must be N1 … N5');
+      if (typeof e.attach_mn !== 'string') warn('attach_mn must be text');
+      if (!Array.isArray(e.match) || !e.match.length) warn('match must be a non-empty list of regex sources');
+      else for (const m of e.match) { try { new RegExp(m); } catch { warn(`match is not a valid regex: ${m}`); } }
+      checkCommon(e, warn);
+      const examples = Array.isArray(e.examples) ? e.examples : [];
+      if (examples.length !== 2) warn('examples must be a list of 2 sentences');
+      for (const ex of examples) {
+        if (typeof ex[src] !== 'string' || !ex[src].trim()) warn(`example.${src} is missing`);
+        else if (Array.isArray(e.match) && !e.match.some((m) => { try { return new RegExp(m).test(ex[src]); } catch { return false; } })) {
+          warn(`example is not found by match: ${ex[src]}`);
+        }
+        if (typeof ex.mn !== 'string' || !ex.mn.trim()) warn('example.mn is missing');
+      }
+      checkMongolian(e, [...(e.meanings_mn || []), e.attach_mn, e.note_mn, ...examples.map((ex) => ex.mn)], warn);
+      count++;
+    }
+  }
+
   if (ids.size) {
     const idsFile = path.join(root, lang, 'ids.json');
     const next = fs.existsSync(idsFile) ? JSON.parse(fs.readFileSync(idsFile, 'utf8')).next_word_id : 0;
@@ -121,7 +157,7 @@ for (const lang of langs) {
     if (base) {
       // Ids are permanent: every id on the base branch must still exist, and the counter never goes back.
       const baseFiles = [];
-      for (const dir of ['words', 'names']) {
+      for (const dir of ['words', 'names', 'grammar']) {
         try {
           baseFiles.push(...git('ls-tree', '--name-only', `${base}:${lang}/${dir}`).split('\n').filter((f) => f.endsWith('.json')).map((f) => `${dir}/${f}`));
         } catch { /* folder not on base yet */ }

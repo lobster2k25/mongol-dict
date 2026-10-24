@@ -5,6 +5,17 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
 
 ## Дараагийн хувилбар / Unreleased
 
+## 0.7.0 — 2026-10-25
+
+- **Дүрмийн 290 хэлбэр** (шинэ хавтас `ja-mn/grammar/`, `grammar-01.json`): 〜てしまう, 〜なければならない, 〜わけにはいかない,
+  〜ようとする…; 3.2 сая хадмалын мөрөнд гарах давтамжаар эрэмбэлсэн (N5 18, N4 92, N3 110, N2 61, N1 9). Бүр нь юунд залгах,
+  монгол утга, тайлбар, 2 жишээ, хадмалын мөрөөс олох `match` regex-тэй. Үгийн бичлэгтэй давхардах 117 хэлбэрийг (〜ばかり,
+  〜すぎる, 〜っぽい…) оруулаагүй. Release-ийн JSON файлд `grammar` гэж нэмэгдсэн. Claude бичсэн. / **290 grammar patterns** in a
+  new `ja-mn/grammar/` folder, ranked by how often they appear in 3.2M subtitle lines; each with attachment, Mongolian meaning,
+  note, 2 examples and `match` regexes. Added to the release JSON as `grammar`. Drafted by Claude.
+- **Холбоос 10 хэллэг** (`phrases-01.json`): とはいえ, とはいっても, とはいうものの, かといって, さりとて, そのくせ, にしても, にせよ,
+  にしろ, にもかかわらず; っていうか нь てか-гийн өөр бичлэг болсон. Үг нийт 25,852. / **10 connectors**; 25,852 words.
+
 ## 0.6.2 — 2026-10-24
 
 - **729 нийлмэл үг** (熟語, `compounds-03.json`): 統合参謀本部, 迷宮入り, 現行犯, 機動隊…; утга нь хэсгүүдийнхээ нийлбэр болсон үгсийг
