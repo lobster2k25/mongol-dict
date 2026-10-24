@@ -5,6 +5,14 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
 
 ## Дараагийн хувилбар / Unreleased
 
+## 0.6.1 — 2026-10-24
+
+- **739 нийлмэл үг** (熟語, `compounds-02.json`): кино, цувралд олон гардаг нийлмэл үгс (家庭教師, 被害妄想, 捜索隊, 巻き戻す…);
+  утга нь хэсгүүдийнхээ нийлбэр болсон 236-г алгассан. / **739 compound words** (`compounds-02.json`); 236 literal ones skipped.
+- **792 үг** давтамжаар (`23001-24000.json`, `24001-25000.json`). Хоёр багцаас 123 бичлэгийг байгаа үгийн өөр бичлэг гэж `alt`-д
+  нэмсэн. Үг нийт 23,502. Claude бичсэн. / **792 words** by frequency; 123 entries of both batches folded into existing ones as other
+  spellings; 23,502 words. Drafted by Claude.
+
 ## 0.6.0 — 2026-10-24
 
 - **449 шинэ ханз** (`kanji/extra-1.json` … `extra-3.json`): 常用漢字-аас гадуурх боловч манай үгэнд гардаг ханз (嘘, 噂, 濡,
