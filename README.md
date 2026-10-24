@@ -1,6 +1,6 @@
 # mongol-dict — Нээлттэй монгол толь бичиг
 
-**📖 <!-- stats:words -->23,502<!-- /stats --> япон үг · <!-- stats:kanji -->2,585<!-- /stats --> ханз · <!-- stats:names -->907<!-- /stats --> оноосон нэр** — v<!-- stats:version -->0.6.1<!-- /stats --> ([татах](../../releases/latest)) · <!-- stats:words -->23,502<!-- /stats --> Japanese words, <!-- stats:kanji -->2,585<!-- /stats --> kanji
+**📖 <!-- stats:words -->25,842<!-- /stats --> япон үг · <!-- stats:kanji -->2,585<!-- /stats --> ханз · <!-- stats:names -->907<!-- /stats --> оноосон нэр** — v<!-- stats:version -->0.6.2<!-- /stats --> ([татах](../../releases/latest)) · <!-- stats:words -->25,842<!-- /stats --> Japanese words, <!-- stats:kanji -->2,585<!-- /stats --> kanji
 
 Гадаад хэлнээс монгол руу орчуулсан нээлттэй, үнэгүй толь бичгийн өгөгдөл. Хэн ч ашиглаж, засаж, нэмж болно.
 Эхний хэл нь япон; бусад хэлийг ижил бүтцээр нэмнэ ([NEW-LANGUAGE.md](NEW-LANGUAGE.md)).
@@ -15,7 +15,7 @@
 
 | Хавтас | Орчуулга | Агуулга | Хянасан |
 |--------|----------|---------|---------|
-| [`ja-mn/`](ja-mn/) | Япон → Монгол | Өдөр тутмын хэрэглээний 2,136 ханз (常用漢字) болон үгэнд гардаг бусад 449 ханз (нийт <!-- stats:kanji -->2,585<!-- /stats -->), кино, цувралын хадмалд хамгийн их гардаг <!-- stats:words -->23,502<!-- /stats --> үг, хэллэг, <!-- stats:names -->907<!-- /stats --> оноосон нэр (улс, газар, байгууллага, овог) | <!-- stats:reviewed -->0<!-- /stats --> |
+| [`ja-mn/`](ja-mn/) | Япон → Монгол | Өдөр тутмын хэрэглээний 2,136 ханз (常用漢字) болон үгэнд гардаг бусад 449 ханз (нийт <!-- stats:kanji -->2,585<!-- /stats -->), кино, цувралын хадмалд хамгийн их гардаг <!-- stats:words -->25,842<!-- /stats --> үг, хэллэг, <!-- stats:names -->907<!-- /stats --> оноосон нэр (улс, газар, байгууллага, овог) | <!-- stats:reviewed -->0<!-- /stats --> |
 | `ko-mn/`, `zh-mn/`, `en-mn/` … | Солонгос, хятад, англи … → Монгол | Хараахан эхлээгүй. [Эхлүүлэх үү?](NEW-LANGUAGE.md) | |
 
 ## Татах
@@ -108,7 +108,7 @@ Pull request бүрт GitHub `tools/validate.js`-г автоматаар ажи�
 
 Open dictionary data from other languages **into Mongolian** (Cyrillic). Each folder is one direction,
 `<source>-mn/` with ISO 639-1 codes. The first is `ja-mn/` (Japanese → Mongolian): all 2,136 jōyō kanji plus 449 more that our words use (<!-- stats:kanji -->2,585<!-- /stats --> in all) and the
-<!-- stats:words -->23,502<!-- /stats --> most frequent subtitle words and set phrases, plus <!-- stats:names -->907<!-- /stats --> proper nouns (countries, places, organisations, surnames). Every entry is currently an **unreviewed AI draft**.
+<!-- stats:words -->25,842<!-- /stats --> most frequent subtitle words and set phrases, plus <!-- stats:names -->907<!-- /stats --> proper nouns (countries, places, organisations, surnames). Every entry is currently an **unreviewed AI draft**.
 
 - Word entries share one format across languages (table above); each of the two `examples` is keyed by the source language code.
 - **Permanent ids**: every word has an `id` that never changes and is never reused, so other projects can link to

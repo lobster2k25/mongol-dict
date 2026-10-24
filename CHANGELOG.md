@@ -5,6 +5,14 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
 
 ## Дараагийн хувилбар / Unreleased
 
+## 0.6.2 — 2026-10-24
+
+- **729 нийлмэл үг** (熟語, `compounds-03.json`): 統合参謀本部, 迷宮入り, 現行犯, 機動隊…; утга нь хэсгүүдийнхээ нийлбэр болсон үгсийг
+  алгассан. / **729 compound words** (`compounds-03.json`); literal ones skipped.
+- **1,611 үг** давтамжаар (`24001-25000.json` … `26001-27000.json`): Claude (Sonnet) 908, Gemini API 957 ноорог бичсэн. Бүх багцаас 279
+  бичлэгийг байгаа үгийн өөр бичлэг гэж `alt`-д нэмсэн. Үг нийт 25,842. / **1,611 words** by frequency, drafted by Claude (908) and
+  the Gemini API (957); 279 entries folded into existing ones as other spellings; 25,842 words.
+
 ## 0.6.1 — 2026-10-24
 
 - **739 нийлмэл үг** (熟語, `compounds-02.json`): кино, цувралд олон гардаг нийлмэл үгс (家庭教師, 被害妄想, 捜索隊, 巻き戻す…);
