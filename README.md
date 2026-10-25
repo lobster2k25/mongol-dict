@@ -1,6 +1,6 @@
 # mongol-dict — Нээлттэй монгол толь бичиг
 
-**📖 <!-- stats:words -->27,356<!-- /stats --> япон үг · <!-- stats:kanji -->2,585<!-- /stats --> ханз · <!-- stats:names -->907<!-- /stats --> оноосон нэр** — v<!-- stats:version -->0.7.1<!-- /stats --> ([татах](../../releases/latest)) · <!-- stats:words -->27,356<!-- /stats --> Japanese words, <!-- stats:kanji -->2,585<!-- /stats --> kanji
+**📖 <!-- stats:words -->27,356<!-- /stats --> япон үг · <!-- stats:kanji -->2,585<!-- /stats --> ханз · <!-- stats:names -->907<!-- /stats --> оноосон нэр** — v<!-- stats:version -->0.7.2<!-- /stats --> ([татах](../../releases/latest)) · <!-- stats:words -->27,356<!-- /stats --> Japanese words, <!-- stats:kanji -->2,585<!-- /stats --> kanji
 
 Гадаад хэлнээс монгол руу орчуулсан нээлттэй, үнэгүй толь бичгийн өгөгдөл. Хэн ч ашиглаж, засаж, нэмж болно.
 Эхний хэл нь япон; бусад хэлийг ижил бүтцээр нэмнэ ([NEW-LANGUAGE.md](NEW-LANGUAGE.md)).

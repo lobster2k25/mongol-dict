@@ -5,6 +5,12 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
 
 ## Дараагийн хувилбар / Unreleased
 
+## 0.7.2 — 2026-10-26
+
+- **Дүрмийн 148 хэлбэр** (`grammar/grammar-02.json`): 〜ずにはいられない, 〜てたまらない, 〜はおろか, 〜にほかならない,
+  〜を余儀なくされる, 〜かよ, 〜ったら…; хадмалд гарах давтамжаар (N4 8, N3 45, N2 60, N1 35). Дүрмийн хэлбэр нийт 438. Claude бичсэн. /
+  **148 grammar patterns** (`grammar-02.json`), ranked by subtitle frequency; 438 grammar patterns in all. Drafted by Claude.
+
 ## 0.7.1 — 2026-10-25
 
 - **728 нийлмэл үг** (熟語, `compounds-04.json`): 自動小銃, 整形手術, 護送車, 防弾ガラス…; утга нь хэсгүүдийнхээ нийлбэр болсон
