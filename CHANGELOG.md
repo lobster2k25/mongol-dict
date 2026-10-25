@@ -5,6 +5,14 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
 
 ## Дараагийн хувилбар / Unreleased
 
+## 0.7.1 — 2026-10-25
+
+- **728 нийлмэл үг** (熟語, `compounds-04.json`): 自動小銃, 整形手術, 護送車, 防弾ガラス…; утга нь хэсгүүдийнхээ нийлбэр болсон
+  үгсийг алгассан. / **728 compound words** (`compounds-04.json`); literal ones skipped.
+- **776 үг** давтамжаар (`25001-26000.json` … `27001-28000.json`). Хоёр багцаас 157 бичлэгийг байгаа үгийн өөр бичлэг гэж `alt`-д
+  нэмсэн. Үг нийт 27,356. Claude бичсэн. / **776 words** by frequency; 157 entries folded into existing ones as other spellings;
+  27,356 words. Drafted by Claude.
+
 ## 0.7.0 — 2026-10-25
 
 - **Дүрмийн 290 хэлбэр** (шинэ хавтас `ja-mn/grammar/`, `grammar-01.json`): 〜てしまう, 〜なければならない, 〜わけにはいかない,
