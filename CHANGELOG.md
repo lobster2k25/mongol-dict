@@ -5,6 +5,10 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
 
 ## Дараагийн хувилбар / Unreleased
 
+## 0.7.3 — 2026-10-27
+
+- 〜てくる-ийн `match` 〜てくれ-г барихгүй болсон (止めてくれ). / The 〜てくる match no longer catches 〜てくれ.
+
 ## 0.7.2 — 2026-10-26
 
 - **Дүрмийн 148 хэлбэр** (`grammar/grammar-02.json`): 〜ずにはいられない, 〜てたまらない, 〜はおろか, 〜にほかならない,
