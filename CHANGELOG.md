@@ -5,6 +5,16 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
 
 ## Дараагийн хувилбар / Unreleased
 
+## 0.7.4 — 2026-10-29
+
+- **717 нийлмэл үг** (熟語, `compounds-05.json`): 利己主義, 根気強い, 生産性, 退屈しのぎ…; утга нь хэсгүүдийнхээ нийлбэр болсон үгсийг
+  алгассан. / **717 compound words** (`compounds-05.json`); literal ones skipped.
+- **1,500 үг** давтамжаар (`27001-28000.json` … `29001-30000.json`): Claude (Sonnet) 895, Gemini API 850 ноорог бичсэн; 280 бичлэгийг
+  байгаа үгийн өөр бичлэг гэж `alt`-д нэмсэн. Хадмалд 5+ удаа гарсан үгс дуусч, `build-freq.js` одоо 3+ удаа гарсан үгсийг жагсаадаг болсон
+  (`node ja-mn/tools/build-freq.js Infinity 3`). Үг нийт 29,573. / **1,500 words** by frequency, drafted by Claude (895) and the Gemini API (850);
+  280 folded into existing entries as other spellings. The 5+ list ran out, so build-freq.js takes a minimum count (now 3); 29,573 words.
+- Засвар: 醤油 «цуу» → «шар буурцгийн сүмс», 逆立つ «өрөвдөх» → «арзайх». / Fixes: 醤油 (was "vinegar"), 逆立つ (was "pity").
+
 ## 0.7.3 — 2026-10-27
 
 - 〜てくる-ийн `match` 〜てくれ-г барихгүй болсон (止めてくれ). / The 〜てくる match no longer catches 〜てくれ.

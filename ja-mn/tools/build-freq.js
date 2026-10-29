@@ -5,7 +5,9 @@
 // Also writes sources/name-freq.json (proper nouns: countries, places, surnames, organisations; kept apart
 // because they need a different entry type) and sources/token-totals.json (all Japanese tokens, so coverage
 // is measured against everything, names included).
-// Usage: node ja-mn/tools/build-freq.js [maxLines]
+// Usage: node ja-mn/tools/build-freq.js [maxLines] [minCount=5]
+// minCount: how often a word must appear to be listed. Ranks of the more frequent words don't change with it,
+// so a lower value (3, after the 5+ words ran out on 2026-10-29) only adds ranks at the end.
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
@@ -15,6 +17,7 @@ const { root } = require('./lib-sources');
 const hira = (s) => s.replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
 const japanese = /[぀-ヿ一-鿿]/;
 const maxLines = +(process.argv[2] || Infinity);
+const minCount = +(process.argv[3] || 5);
 
 kuromoji.builder({ dicPath: path.join(path.dirname(require.resolve('kuromoji/package.json')), 'dict') }).build(async (err, tk) => {
   if (err) throw err;
@@ -46,7 +49,7 @@ kuromoji.builder({ dicPath: path.join(path.dirname(require.resolve('kuromoji/pac
       if (base === t.surface_form) e.reading = hira(t.reading || '');
     }
   }
-  const out = [...freq.values()].filter((e) => e.count >= 5).sort((a, b) => b.count - a.count);
+  const out = [...freq.values()].filter((e) => e.count >= minCount).sort((a, b) => b.count - a.count);
   out.forEach((e, i) => {
     e.rank = i + 1;
     if (!e.reading) e.reading = hira(tk.tokenize(e.word).map((t) => t.reading || t.surface_form).join(''));
