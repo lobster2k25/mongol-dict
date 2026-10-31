@@ -5,6 +5,14 @@ Version numbers: `0.x` while entries are unreviewed drafts. Word ids never chang
 
 ## Дараагийн хувилбар / Unreleased
 
+## 0.7.5 — 2026-10-31
+
+- **718 нийлмэл үг** (熟語, `compounds-06.json`): 植物人間, 遺伝子組み換え作物, 扁桃体…; утга нь хэсгүүдийнхээ нийлбэр болсон үгсийг
+  алгассан. / **718 compound words** (`compounds-06.json`); literal ones skipped.
+- **1,526 үг** давтамжаар (`28001-29000.json` … `31001-32000.json`): Claude (Sonnet) 853, Gemini API 959 ноорог бичсэн; 319 бичлэгийг
+  байгаа үгийн өөр бичлэг гэж `alt`-д нэмсэн. Үг нийт 31,817. / **1,526 words** by frequency, drafted by Claude (853) and the Gemini API (959);
+  319 folded into existing entries as other spellings; 31,817 words.
+
 ## 0.7.4 — 2026-10-29
 
 - **717 нийлмэл үг** (熟語, `compounds-05.json`): 利己主義, 根気強い, 生産性, 退屈しのぎ…; утга нь хэсгүүдийнхээ нийлбэр болсон үгсийг
